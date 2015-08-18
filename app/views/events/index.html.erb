@@ -185,7 +185,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   
   <% if @events.count > 0 %>
     <% @events.each do |event| %>
-
+  <%= cl_video_tag(event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>520, :crop=>:scale, :controls => true, :poster => false, :fallback_content => "Your browser does not support HTML5 video tags")%>
     <% end %>
     </div>
 </div>  
