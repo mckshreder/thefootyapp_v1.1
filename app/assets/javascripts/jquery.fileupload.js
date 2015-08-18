@@ -158,7 +158,7 @@
             // Interval in milliseconds to calculate progress bitrate:
             bitrateInterval: 500,
             // By default, uploads are started automatically when adding files:
-            autoUpload: true,
+            autoUpload: false,
 
             // Error and info messages:
             messages: {
