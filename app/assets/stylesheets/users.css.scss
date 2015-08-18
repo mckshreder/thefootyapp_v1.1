@@ -514,8 +514,16 @@ padding: 4px;
 }
 
 
-
-
+/*this is for events page photo*/
+.event_photo_tag{
+  /*border-radius: 100%;*/
+  border: 1px solid white;
+  margin: 1%;
+  max-width: 20%;
+  max-height: 20%;
+  float:left !important;
+  margin-left: 6%;
+}
 
  div.form_group{
   text-align: left;

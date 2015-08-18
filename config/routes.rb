@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     
     resources :events
 
-    root "users#landing_page"
+    root "posts#index"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
     # get "/users/eventmap" => "users#eventmap", as: :event_map

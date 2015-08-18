@@ -155,7 +155,7 @@ br.clear {
 body.container-fluid{
   width: 100%;
   padding: 0;
-  margin-top: -1%;
+  margin-top: -73px;
   letter-spacing: 2px;
   }
 
@@ -229,8 +229,8 @@ position: relative;
 
 /*The left column containing the posts*/
  .left_column {
-  width: 55%;
-  margin-left: 5%;
+  width: 50%;
+  margin-left: 9.5%;
 /*  margin-top:25px;*/
   float:left;
   text-align: center;
@@ -393,7 +393,7 @@ hr.small_line_break{
 
 /*the word Events on right column top*/
 .feed_border h2{
-  font-size: 3.5vw !important;
+  font-size: 3vw !important;
   text-align: center;
 }
 .feed_border h6{
@@ -522,10 +522,27 @@ a.blob{
         to {background-color:#0088ff !important;}
 }
 
+
+/*this is for the buttons above event rsvp*/
+.rsvp_button {
+  font-size: 1vw !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+/*  padding-top: 5%;
+  padding-bottom: 5%;*/
+  color:white !important;
+  width:30% !important;
+  overflow: hidden;
+  float: left;
+  background-color: #0088ff !important;
+
+  }
+
 /*The right column containing the posts*/
  .right_column {
-  width: 33%;
-  margin-right: 5%;
+  width: 30%;
+  margin-right: 9.5%;
   margin-top:0.5%;
   float:right;
   padding-left: 0.5%;
@@ -670,9 +687,15 @@ a.navbar-brand{
 
 
 
-.container-fluid, .navbar .nav-links {
-font-family: 'Michroma', sans-serif;
+.container-fluid {
+  font-family: 'Oswald', sans-serif;
 }
+
+.navbar .nav-links {
+font-family: 'Michroma', sans-serif, !important;
+
+}
+
 
 .feed_row {
   width: 100%;
