@@ -95,25 +95,25 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     <div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
-      <h2>
-      CONTACT COMPANIES!
+      <h2 class="left">
+      LOCAL EVENTS!
         </h2>
-      <hr class="small_line_break">
-      <h4 class="right">Send your footy and your favoite company.</h4>
+      <!-- <hr class="small_line_break"> -->
     </div>
   <div class="home_info"> 
+      <!-- <h5 class="center">Send your footy and your favoite company.</h5> -->
     <ul class="text_list">
-    <h3>FEATURED COMPANIES</h3>
       <li>
-        <p>#1. Please contact the company of your choice!</p>
+        <p>Option #1. Scroll through events and RSVP to the event of your choice!</p>
       </li>
       <li>
-        <p>#2. Click a company's logo icon.</p>
+        <p>Option #2. Search events near you by your location on theFOOTYmap.</p>
       </li>
       <li>
-        <p>#3. Then send them a message and ask them to check out your footy!</p>
+        <p>Option #3. Create an skate event for theFOOTY™app!</p>
       </li>
     </ul>
+    <h3>FEATURED EVENTS</h3>
   </div>
   <hr class = "line-break" >
 
@@ -126,14 +126,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
     
 
 
-             <a class="inline" href="">
-            <img src="http://skateparkoftampa.com/spot/productimages/1065mfgr.jpg" class= "company_profile_photo_tag" >
-            </a>
 
 
   
   <% if @events.count > 0 %>
     <% @events.each do |event| %>
+             <a class="inline" href="">
+              <%= cl_image_tag(event.image, :crop => :fill, class: "company_profile_photo_tag") %>
+              <img src="http://skateparkoftampa.com/spot/productimages/1065mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+              <%= event.title %>
+
   <%= cl_video_tag(event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>520, :crop=>:scale, :controls => true, :poster => false, :fallback_content => "Your browser does not support HTML5 video tags")%>
     <% end %>
     </div>

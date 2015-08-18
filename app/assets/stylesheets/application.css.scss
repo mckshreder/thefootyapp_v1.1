@@ -155,7 +155,7 @@ br.clear {
 body.container-fluid{
   width: 100%;
   padding: 0;
-  margin-top: -1%;
+  margin-top: -73px;
   letter-spacing: 2px;
   }
 
@@ -393,7 +393,7 @@ hr.small_line_break{
 
 /*the word Events on right column top*/
 .feed_border h2{
-  font-size: 3.5vw !important;
+  font-size: 3vw !important;
   text-align: center;
 }
 .feed_border h6{
@@ -670,9 +670,15 @@ a.navbar-brand{
 
 
 
-.container-fluid, .navbar .nav-links {
-font-family: 'Michroma', sans-serif;
+.container-fluid {
+  font-family: 'Oswald', sans-serif;
 }
+
+.navbar .nav-links {
+font-family: 'Michroma', sans-serif, !important;
+
+}
+
 
 .feed_row {
   width: 100%;
