@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <%= cl_video_tag(@event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>520, :crop=>:scale, :controls => true, :poster => false, :fallback_content => "Your browser does not support HTML5 video tags")%>
 <%= cl_image_tag(@event.image, :crop => :fill, :width => 520, :height => 380) %>
+<%= cl_image_tag("zrhjwj7xgdo35odzscvi.gif", :resource_type=>"video") %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
