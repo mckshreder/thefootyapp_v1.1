@@ -58,6 +58,14 @@ $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
 $(document).ready(function(){
 mainmenu();
 
+$(document).ready(function() {
+  $('.cloudinary-fileupload').fileupload({
+    disableImageResize: false,
+    maxFileSize: 20000000, // 20MB
+    loadImageMaxFileSize: 20000000 // default limit is 10MB
+  });
+});
+
 });
 
 
