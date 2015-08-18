@@ -52,21 +52,28 @@
 <% if current_user %>
     <li>
        <div class = "tab" id = "purple" href="#">
-         <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+         <%= link_to "YOUR ACCOUNT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+            
        </div>
-       </div>
+
+
+
         <div class = "dropdown_nav">
-          <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+          <%= link_to "YOUR PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+          <%= link_to "EDIT PROFILE",  edit_users_path(current_user), class: "nav_pad", :id => "purple" %>
+          <%= link_to "LOG OUT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
         </div>
     </li>
+    
+
 <% else %>
     
     <li>
        <div class = "tab" id = "purple" href="#">
-       <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %></div>
+       <%= link_to "NEW USER?", new_user_path, class: "nav_pad", :id => "purple" %></div>
        </div>
         <div class = "dropdown_nav">
-        <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %>
+        <%= link_to "START FOR FREE", new_user_path, class: "nav_pad", :id => "purple" %>
 
         </div>
     </li>

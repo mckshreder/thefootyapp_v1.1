@@ -26,7 +26,7 @@ function initialize() {
             map: map,
             // assigns the window to show on map at current user location
             position: pos,
-            content: 'your current location.'
+            content: 'YOU ARE HERE'
           });
 
 
@@ -42,27 +42,38 @@ function initialize() {
     }
     
     // variable for all markers in event.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+    var infowindow = null;
     var markers = $("#marker_data").val();
+    var contentString;
 
   for (var i = 0; i < markers.length; i++) {
     // this splits data into two seperate strings of an array. Erase ","
     var coordinates = markers[i].split(",");
     // Number takes array turns strings into numbers for google pos variable
     var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
-        console.log(pos);
+        console.log(coordinates[3]);
 
+    var contentString ='<p>' + $("#marker_data").val() + '<p>' + '<a href = "/events/' + $("#id").val() + '"class = "large_button">' + 'CLICK FOR MORE INFO' + '</a>'+ '</p>';
       
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      maxWidth: 500
+     });
         // this creates the marker in the user view
     var marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: pos,
         map: map
     });
-
     // this creates zoom when user clicks marker
+  //   google.maps.event.addListener(marker, 'click', function() {
+  //   infowindow.open(map,marker);
+  // });
+        
     google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
+
+    infowindow.open(map, this)
+    });
   }
 }
 
@@ -110,29 +121,20 @@ google.maps.event.addDomListener(window, 'load', initialize);
         <p>Option #2. Search events near you by your location on theFOOTYmap.</p>
       </li>
       <li>
-        <p>Option #3. Create an skate event for theFOOTY™app!</p>
+        <p>Option #3. Create a skate event for theFOOTY™app!</p>
       </li>
     </ul>
-    <h3>FEATURED EVENTS</h3>
   </div>
-  <!-- <hr class = "line-break" > -->
-
-
-
+<!-- <hr class = "line-break" > -->
+    <div class="feed_border">
       
-      <h2>
-        <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %> -->
-      </h2>
-    
-
-
-
+    <h3>FEATURED EVENTS</h3>
+    </div>
 
   
   <% if @events.count > 0 %>
     <% @events.each do |event| %>
 <div class="feed_border">
-<hr class = "line-break" >
       <a class="inline" href="">
         <%= cl_image_tag(event.image, :crop => :fill, class: "event_photo_tag") %>
         <!-- <img src="http://skateparkoftampa.com/spot/productimages/1065mfgr.jpg" class= "company_profile_photo_tag" > -->
@@ -150,7 +152,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       </spam>
 
       <div class="center">
-        <%= cl_video_tag(event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>450, :crop=>:scale, :controls => true, :poster => true, :fallback_content => "Your browser does not support HTML5 video tags")%>
+        <%= cl_video_tag(event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>493, :crop=>:scale, :controls => true, :poster => true, :fallback_content => "Your browser does not support HTML5 video tags")%>
       </div>
     </div>
     <% end %>
@@ -199,11 +201,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
       <hr class = "line_break">
       <h3 class="center">
-        Are you a company?
+        HAVING A SKATE EVENT?
       </h3>
-      <h5 class="center">DO YOU WANT TO START A MOVEMENT?</h5>
-      <a class="submit-button-create, large_button" href="/posts/new">
-       PLEASE APPLY HERE
+      <h5 class="center">PUBLISH YOUR EVENT FOR FREE</h5>
+      <a class="submit-button-create, large_button" href="/events/new">
+       CLICK TO MAKE EVENT
       </a>
 
     </div>
@@ -299,7 +301,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
 <select hidden, id = "marker_data" multiple>
 <% @events.each do |event| %>
-  <option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>">
-  </option> 
+  <option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>,<%= event.title%>,<%= event.date%>,<%= event.address%>">
+  </option>
+  <option id = "id" selected = "true" value = "<%= event.id%>">
+  </option>  
+
 <% end %>
 </select>

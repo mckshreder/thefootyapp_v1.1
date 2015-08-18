@@ -229,7 +229,8 @@ position: relative;
 
 /*The left column containing the posts*/
  .left_column {
-  width: 50%;
+  width: 43%;
+  max-width: 493px;
   margin-left: 9.5%;
 /*  margin-top:25px;*/
   float:left;
@@ -365,6 +366,7 @@ hr.small_line_break{
   text-align: left;
   font-size: 5vw !important;
   background-color: transparent !important;
+  overflow: hidden;
 }
 .feed_border img{
   width: 100%;
@@ -525,10 +527,11 @@ a.blob{
 
 /*this is for the buttons above event rsvp*/
 .rsvp_button {
-  font-size: 1vw !important;
+  font-size: 1em !important;
   text-align: center;
   font-weight: bolder;
   border: 1px black solid;
+  margin-left: 5px;
 /*  padding-top: 5%;
   padding-bottom: 5%;*/
   color:white !important;
@@ -541,7 +544,8 @@ a.blob{
 
 /*The right column containing the posts*/
  .right_column {
-  width: 30%;
+  width: 38%;
+  max-width: 441px;
   margin-right: 9.5%;
   margin-top:0.5%;
   float:right;
