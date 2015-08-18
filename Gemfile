@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Gemfile
 # gem 'attachinary'
+
 gem 'carrierwave-video'
 gem 'carrierwave'
 
