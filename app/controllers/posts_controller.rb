@@ -15,12 +15,23 @@ class PostsController < ApplicationController
         @posts = Post.all.shuffle
         @post = Post.find(params[:id])
         @comment = Comment.new
+        @user = Post.find(params[:id])
     end
 
    def create
         @post = Post.new(post_params)
-        # @events = Event.new(event_params)    
-                
+        # @events = Event.new(event_params)
+        if params[:image_id].present?
+          preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+          raise "Invalid upload signature" if !preloaded.valid?
+          @event.image_id = preloaded.identifier
+        end
+
+        if params[:video_id].present?
+          preloaded = Cloudinary::PreloadedFile.new(params[:video_id])         
+          raise "Invalid upload signature" if !preloaded.valid?
+          @event.video_id = preloaded.identifier
+        end
         respond_to do |format|
             
         if current_user.posts.push @post
@@ -43,7 +54,7 @@ end
 
 def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(params.require(:post).permit(:title,:body,:youtube_url,:image, :address))
+    if @post.update_attributes(params.require(:post).permit(:title,:body,:youtube_url,:image, :address, :video))
         redirect_to posts_path
     else 
         render :edit
@@ -63,7 +74,7 @@ end
 
 private
 	def post_params
-		params.require(:post).permit(:title,:body,:youtube_url, :image, :address)
+		params.require(:post).permit(:title,:body,:youtube_url, :image, :address, :video)
 	end
 
     

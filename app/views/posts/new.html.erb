@@ -8,17 +8,19 @@
   <div class="home_info"> 
     <ul class="text_list">
 
-    <%= form_for @post, :html => { :multipart => true }  do |f| %>
+<%= form_for @post, :html => { :multipart => true }, :method => :post do |f| %>
     
-    <div class="form-group">
-    <%= f.label 'PASTE YOUTUBE URL' %>
-    <%= f.url_field :youtube_url, class: "form-control" %>
+   <div class="form-group">
+    <%= f.label 'Upload A Photo'%>
+    <%= f.hidden_field(:image_cache)%>
+    <%= f.file_field(:image, :html => { :multiple => true })%>
     </div>
-    
-<!--     <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: "form-control"%>
-    </div> -->
+
+    <div class="form-group">
+    <%= f.label 'Upload A Video'%>
+    <%= f.hidden_field(:video_cache)%>
+    <%= f.file_field(:video, :chunk_size => 6_000_000, :html => { :multiple => true })%>
+    </div>
 
     <div class="form-group">
     <%= f.label 'Title' %>

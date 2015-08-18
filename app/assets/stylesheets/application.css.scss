@@ -230,7 +230,7 @@ position: relative;
 /*The left column containing the posts*/
  .left_column {
   width: 43%;
-  max-width: 493px;
+  /*max-width: 493px;*/
   margin-left: 9.5%;
 /*  margin-top:25px;*/
   float:left;
@@ -250,13 +250,12 @@ position: relative;
   list-style:none;
   text-align: left;
   padding: 0;
-  padding-bottom: 1%;
+  /*padding-bottom: 1%;*/
 }
 
 .text_list p{
-  font-size: 1.33vw;
-  font-weight: bolder;
-  line-height: 162%;
+  font-size: 1.2vw;
+  /*line-height: 162%;*/
 }
 /*.text_list small{
   font-size: 1vw;
@@ -265,9 +264,11 @@ position: relative;
   font-size: 2.3vw;
 }
 .home_info{
-border-top: 1.5px black solid;
+/*border-top: 1.5px black solid;*/
 padding-left: 1%;
 padding-right: 1%;
+color: white;
+border:none;
 /*border-bottom: 1px black solid;*/
 }
 
@@ -545,7 +546,7 @@ a.blob{
 /*The right column containing the posts*/
  .right_column {
   width: 38%;
-  max-width: 441px;
+  /*max-width: 441px;*/
   margin-right: 9.5%;
   margin-top:0.5%;
   float:right;

@@ -1,5 +1,5 @@
 
-<div class = "create_post">
+
 <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -12,7 +12,15 @@
     </div>
 <% end %>
 
-<p>Create New Event</p>
+<div class="left_column">
+  <div class="feed_border">
+      <h4 class="left">the FOOTY™app</h4>
+      <h2>CREATE YOUR EVENT</h2>
+      <hr class="small_line_break">
+      <h4 class="right">Please fill all fields below.</h4>
+    </div>
+  <div class="home_info"> 
+    <ul class="text_list">
 
 
 
@@ -52,7 +60,97 @@
     <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
     </div>
 
-    <%= f.submit "Event", class: "submit-button-create", id: "submit_event" %>
+    <%= f.submit "PUBLISH EVENT", class: "submit-button-create", id: "submit_event" %>
 
 <% end %>
+ </ul>
+  </div>
 </div>
+
+
+<!-- this is the user profile photo container  for right column-->
+        
+
+<!-- this is the "sign in or sign up forum" -->
+<% if current_user %>
+    <div class="right_column">
+
+        <ul id="topright_nav">
+        <li>
+            <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
+                <small>Hello, </small>
+                  
+                  <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+                  </a>
+                 <!--  <span class="glyphicon glyphicon-cog" aria-hidden="true">
+                  </span>
+ -->              
+              <ul> 
+                <li>
+                     <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+                     </a>
+                </li> 
+                <li>
+                    <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+                    </a>
+                </li>  
+                <li>
+                    <a><%= link_to "Log out", destroy_session_path %>
+                    </a>
+                </li>  
+              </ul>
+            </li>
+        </ul>
+        
+
+
+    <div class="feed_border">
+      <hr class = "small_line_break">
+        <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+      </div>
+    </div>
+
+
+
+
+
+
+<% else %>
+
+<div class="right_column">
+    <div id="topright_nav">
+        <!-- <h4 class="center">New to the Footy app?</h4>
+        <h3 class="center">Sign up for Free!</h3>
+        <p class="center">It's simple and easy.</p>
+        <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
+        <hr> -->
+        <h2 class="center">Hello, Sign in</h2>
+        <h5 class="center">your footy™ account.</h5>
+
+        <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
+    </div>
+    <h4 class="center">theFOOTY™app</h4>
+</div>
+    <% end %>
+
+    
+<div class="right_column">
+    <div class="home_info"> 
+        <ul class="text_list">
+            <h3>What to do...</h3>
+            <li>
+                <p>#1. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+            </li>
+            <li>
+                <p>#2. Paste the YouTube url link into the form.</p>
+            </li>
+            <li>
+                <p>#3. Complete all parts of the form.</p>
+            </li>
+            <li>
+                <p>#4. Share your footy with the company of your choice!</p>
+            </li>
+        </ul>
+    </div>
+</div>
+

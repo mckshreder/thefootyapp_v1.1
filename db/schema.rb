@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814121931) do
+ActiveRecord::Schema.define(version: 20150818172724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20150814121931) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "youtube_url"
-    t.string   "image_url"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
@@ -78,6 +77,8 @@ ActiveRecord::Schema.define(version: 20150814121931) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image"
+    t.string   "video"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150814121931) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "image"
   end
 
   add_foreign_key "comments", "posts"

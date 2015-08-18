@@ -165,8 +165,9 @@ $(document).ready(function() {
       </div> 
 
            
-     <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
-         </div>
+     <div class="center">
+          <%= cl_video_tag(post.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>493, :crop=>:scale, :controls => true, :poster => true, :fallback_content => "Your browser does not support HTML5 video tags")%>
+        </div>
     
     <div class="video-poster, info-on-feed">
   
