@@ -230,6 +230,7 @@ position: relative;
 /*The left column containing the posts*/
  .left_column {
   width: 50%;
+  max-width: 650px;
   margin-left: 9.5%;
 /*  margin-top:25px;*/
   float:left;
@@ -365,6 +366,7 @@ hr.small_line_break{
   text-align: left;
   font-size: 5vw !important;
   background-color: transparent !important;
+  overflow: hidden;
 }
 .feed_border img{
   width: 100%;
@@ -542,6 +544,7 @@ a.blob{
 /*The right column containing the posts*/
  .right_column {
   width: 30%;
+  max-width: 350px;
   margin-right: 9.5%;
   margin-top:0.5%;
   float:right;
