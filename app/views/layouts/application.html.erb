@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FOOTY™</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= cloudinary_js_config %>
+
+  <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9fLUHE8EU1Fyodf93hd4qPY1PsJ2rYIs"
+  type="text/javascript"></script>
+
+  
+
+</head>
+
+<body class="container-fluid" >
+<div>
+  <%= image_tag ("FOOTY_logo_2.png"), :class => "footy_logo_img"%> 
+</div>
+
+<nav>
+  
+  <ul id = "my_new_nav">
+
+    <li>
+      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts">HOME</a></div>
+        <div class = "dropdown_nav"><a class="nav_pad" id = "pink" href="/posts">HOME</a>
+      </div>
+    </li> 
+    
+    <li>
+       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map">CLASSIFIEDS</a>
+       </div>
+        <div class = "dropdown_nav">
+          <a class="nav_pad" id = "orange" href="/users/map">CLASSIFIEDS</a>
+        </div>
+    </li>
+    
+    <li>
+      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events">COMPANIES</a>
+      </div>
+      <div class = "dropdown_nav">
+          <a class="nav_pad" id = "blue" href="/events">COMPANIES</a>
+      </div> 
+    </li>
+    
+<% if current_user %>
+    <li>
+       <div class = "tab" id = "purple" href="#">
+         <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+       </div>
+       </div>
+        <div class = "dropdown_nav">
+          <%= link_to "PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+        </div>
+    </li>
+<% else %>
+    
+    <li>
+       <div class = "tab" id = "purple" href="#">
+       <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %></div>
+       </div>
+        <div class = "dropdown_nav">
+        <%= link_to "PROFILE", new_user_path, class: "nav_pad", :id => "purple" %>
+
+        </div>
+    </li>
+  <% end %>
+    
+    <li>
+       <div class = "tab" id = "green" href="#"><a class="nav_pad" href="#">ABOUT</a></div>  
+          <div class = "dropdown_nav">
+            <a class="nav_pad" id = "green" href="#">ABOUT</a>
+          </div>
+
+    </li>
+
+  </ul>
+</nav>
+<br class = "clear">
+
+
+<%= yield %>
+
+</body>
+</html>

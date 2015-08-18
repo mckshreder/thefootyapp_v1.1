@@ -1,0 +1,56 @@
+
+
+<%= form_for current_user, html: { multipart: true } do |f| %>
+
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited you're info from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+    
+    <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    </div>
+    
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"%>
+    </div>
+    
+    <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+    </div>
+    
+    <div class="field">
+    <%= f.label :password, "New Password" %> 
+    <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="field">
+    <%= f.label :password_confirmation, "Confirm New Password" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :age %>
+    <%= f.text_field :age, class: "form-control"%>
+    </div>
+    <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_area :bio, class: "form-control"%>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "Update Info", class: "submit-button-create" %>
+    </div>
+
+<% end %>

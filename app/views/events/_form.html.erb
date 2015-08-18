@@ -1,0 +1,18 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_tag @event, :method => :post do |f| %>
+  <%= cl_image_upload_tag(:image_id, :html => { :multiple => true })%>
+  <%= cl_upload_tag(:video_id, :html => { :multiple => true })%>
+<% end %>
+<% end %>

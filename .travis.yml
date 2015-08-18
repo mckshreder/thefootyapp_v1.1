@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.0.0-p481
+branches:
+  only:
+  - master
+install:
+- travis_retry bundle install
+before_script:
+- psql -c 'create database blog_with_comments_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: fN5G/RhnbWPu7KifPuaOTcl3dyz7Wk0zJ1laiaOOaNE6U7rhWRC0HEUJbHIu6gncwwoCuCLLKdTrUSKrHQNEP+JfrO8bUkjsyvesBtQs7zwiSOEVGM1yvzmNlNmsceU5HbxlQfx0FIUOHKhY5Ccc9Er9JeYu7KXO/JFVmiPZQGHUlLJwfC4dRwE6htkY8z6Tkw2V4VUZrRKSZ1nGpCXWT4Bvnr0W9zCKuI7jTsblx1R5G9uG0wusbkHGFmmaEISo2mmVOj33v+gkHjnRJyFFG4jLxdHgpxxugLmroqCML+Nno4jpZwvReOuFyNta4VRn5AISgw9rhDatqfXlUGkbbkYsC6TPIE8nv5cHF+mdMbq6wxKdOzRCE7wdrrvXNdjKJQybND0jZym/HGIc5J0rluECD3ekAaqxDXRIEL0nfRydr6OQ+o3f/R5ulDw9NDtbHs37LPwCzt522oBW9Y5Sz1TNzGXz7p9IRiJ5/yI/JfeF1nwRa8LR50mvml3L7BKRYBoGLRtMH1TcyWvOL/hA/btgmXh/BO4Y5zNfNEn9DZM7+ckITNadZa9GpayUvdv6IN/X/sgrZOWS1Ooza4i4Anz9FieXTVRiDGltxBNwHtpvyEcGglvgmRSnYagZQb+ECBuRwZ8SEtkm7XBxg5ajnwMo3BdYH4fd0vcba2dqUeQ=
+  app: agile-ocean-8643
+  run:
+	 - "rake db:migrate"
+     - restart

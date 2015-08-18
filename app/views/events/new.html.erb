@@ -1,0 +1,58 @@
+
+<div class = "create_post">
+<% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+        <% @event.errors.full_messages.each do |message| %>
+            <li><%= message %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<p>Create New Event</p>
+
+
+
+        
+<%= form_for @event, :method => :post do |f| %>
+   
+    <div class="form-group">
+    <%= f.label 'Upload A Photo'%>
+    <%= f.hidden_field(:image_cache)%>
+    <%= f.file_field(:image, :html => { :multiple => true })%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Upload A Video'%>
+    <%= f.hidden_field(:video_cache)%>
+    <%= f.file_field(:video, :html => { :multiple => true })%>
+    </div>
+
+
+    <div class="form-group">
+    <%= f.label 'Title' %>
+    <%= f.text_field :title, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Date' %>
+    <%= f.text_field :date, class: "form-control"%>
+    </div>
+    
+    <div class="form-group">
+    <%= f.label 'Event Info' %>
+    <%= f.text_field :info, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label 'Address (City, State)' %>
+    <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
+    </div>
+
+    <%= f.submit "Event", class: "submit-button-create", id: "submit_event" %>
+
+<% end %>
+</div>

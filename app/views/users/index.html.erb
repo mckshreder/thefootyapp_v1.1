@@ -1,0 +1,35 @@
+
+<h1 class="jumbotron"></h1>
+
+
+
+<% flash.each do |key, value| %>
+    <div class="alert <%= key %>"><%= value %></div>
+<% end %>
+
+
+<% if @users.count > 0 %>
+    <% @users.each do |user| %>
+        
+    <div class = "video-info-container-header-top">    
+            
+    
+    
+           
+              <%=image_tag user.image.url(:medium, class: "user-profile-photo_tag") %><%= "  " %><%= link_to user.name, user_profile_path(user) %>
+              <h4 class="video-title-link">
+              </h4> 
+               
+            
+          
+                <h4 class="video-email-link"><%= user.email %></h4> 
+            
+        
+   
+</div>
+    <% end %>
+<% else %>
+    <h3>No Users Exist</h3>
+    <hr>
+<% end %>
+

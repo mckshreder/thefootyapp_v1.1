@@ -1,0 +1,396 @@
+    
+
+<script>
+//= require jquery.turbolinks
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 10,
+    // mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  // google.maps,Map creates map on div canvas
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // this creates a location of the current users location 
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          // this assigns the current users coordinats as pos
+          var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+          // below creates the info window marker for current user location
+          var infowindow = new google.maps.InfoWindow({
+            // must use map
+            map: map,
+            // assigns the window to show on map at current user location
+            position: pos,
+            content: 'your current location'
+          });
+          // brings the users map to center their location
+        map.setCenter(pos);
+    });
+
+    handleNoGeolocation(true);
+  }
+  else {
+    // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
+    
+    // variable for all markers in post.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+    var markers = $("#marker_data").val();
+
+  for (var i = 0; i < markers.length; i++) {
+    // this splits data into two seperate strings of an array. Erase ","
+    var coordinates = markers[i].split(",");
+    // Number takes array turns strings into numbers for google pos variable
+    var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
+        console.log(pos);
+
+      
+        var contentString = '<h4>Info for this post coming soon...</h4>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    
+      // this creates the marker in the user view
+    var marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: pos,
+        map: map
+    
+      });
+
+    // this creates zoom when user clicks marker
+        google.maps.event.addListener(marker, 'click', function() {
+       map.setZoom(10);
+       infowindow.open(map,marker);
+       map.setCenter(marker.getPosition());
+      });
+
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+}
+
+// jquery call to initalize () on load basically
+$(document).ready(function() {
+  initialize();
+});
+</script>
+
+
+
+<!-- this contains the map on the view -->
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
+
+<!-- this contains the map on the view -->
+<div class="left_column">
+
+
+    <div class="feed_border">
+      <h4 class="left">the FOOTY™app</h4>
+      <h2><%= @user.name %></h2>
+      <hr class="small_line_break">
+      <h4 class="right">Account profile</h4>
+    </div>
+
+    <div class="home_info">
+      <h2>
+          <!--<%= image_tag @user.image.url(:medium),class: "big_profile_photo_tag" %>-->
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
+      </h2>
+      <ul class="text_list">
+      
+        <li>
+          <p class="black"><small>Name:</small> 
+            <%= @user.name%>        
+          </p>
+        </li>
+        
+        <li>
+          <p class="black"><small>Age:</small> 
+          <%= @user.age%> years old.
+          </p>
+        </li>
+
+        <li>
+          <p class="black"><small>Location :</small>
+            <%= @user.location%>        </p>
+        </li>
+        
+        <li>
+          <p class="black"><small>Email: </small><%= @user.email%></p>
+        </li>
+
+        <li>
+          <p class="black"><small>About Me:</small>
+         <%= @user.bio%></p>
+        </li>
+
+      </ul>
+    </div>
+
+
+  <div class="feed_border">
+  <h4 class="right">All of <%= @user.name.split.first %>'s footy.</h4>
+</div>
+
+  <% if @posts.count > 0 %>
+    <% @posts.each do |post| %>
+      
+    <div class = "large_feed">
+
+      <div class="video_top_info">
+        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+        <%= "  " %>
+        <%= post.user.name %>
+        
+      <div>
+          <%= "| posted:" %>
+          <span class="glyphicon glyphicon-time" aria-hidden="false">
+          </span>
+          <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
+        </div>
+      </div> 
+
+           
+     <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
+         </div>
+    
+    <div class="video-poster, info-on-feed">
+  
+            <div class="video-poster">
+          <div>
+            <xsmall>Video title:</xsmall>
+        <%= link_to "'#{post.title}'", post_path(id: post.id), :class => "title-link, blue" %>
+          </div>
+          </div>
+
+      <hr class = "small_line_break">
+
+          <xsmall>
+            <%="Skater Info:"%>
+          </xsmall> 
+          
+          <div class = "info-on-feed, center">
+                  <p>Name: </p>
+                  <p><%= link_to post.user.name ,  user_profile_path(post.user_id),:class => "option_link"%></p>
+          </div>    
+                  <p> Age: <%= post.user.age%></p>
+                  <p> | City: <%= post.address%></p>
+      <!-- <div class = "video-poster">
+             <%= link_to post.user.name ,  user_profile_path(post.user_id), :class => "large_posts_title" %>
+        </div> -->
+    
+      <div>
+      <p>
+        Options:
+      </p>
+            <%= link_to "#{post.user.name.split.first}'s "+"Profile",  user_profile_path(post.user_id), :class => "option_link" %>
+            <%= "  &  "%>
+            <%= link_to "Full Video", post_path(id: post.id), :class => "option_link" %>
+          </div>
+    </div> 
+
+          <br>
+
+        </div>
+        
+    <% end %>
+  </div>
+
+<!-- <br>  --> 
+<% else %>
+    <h2>No Posts Exist</h2>
+<% end %>
+</div>
+</div>
+
+
+<!-- this is the user profile photo container  for right column-->
+        
+
+<!-- this is the "sign in or sign up forum" -->
+<% if current_user %>
+    <div class="right_column">
+
+        <ul id="topright_nav">
+        <li>
+            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+                <small>Hello, </small>
+                  
+                  <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+                  </a>
+            <!--     <span class="glyphicon glyphicon-cog" aria-hidden="true">
+                    </span> -->
+              
+              <ul> 
+                <li>
+                     <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+                     </a>
+                </li> 
+                <li>
+                    <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+                    </a>
+                </li>  
+                <li>
+                    <a><%= link_to "Log out", destroy_session_path %>
+                    </a>
+                </li>  
+              </ul>
+            </li>
+        </ul>
+        
+
+
+    <div class="feed_border">
+      <hr class = "small_line_break">
+        <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+      </div>
+    </div>
+<div class="right_column">
+    <div class="feed_border">
+
+      <!--   <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
+     -->
+    <!-- this is the div just below the profile photo -->
+    
+     <hr class="small_line_break">
+        <h4>Contact info:</h4>
+        <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
+
+    </div>
+</div>
+
+<div class="right_column">
+  <div class="feed_border">
+        <h4 class="left">the FOOTY™app</h4>
+        
+        <div id="map-canvas">
+        </div>
+        <h4 class="right"><%= @user.name.split.first%>'s ad locations</h4>         
+        <p>
+          <a class="blue, right" href="">Search by Map here</a>
+        </p>
+  </div>
+</div>
+
+
+
+
+<% else %>
+
+<div class="right_column">
+
+  <div class="feed_border">
+  
+  <!-- this is the div just below the map on right -->
+  
+   <hr class="small_line_break">
+      <h4>Contact info:</h4>
+      <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
+
+  </div>
+</div>
+<div class="right_column">
+    <div id="topright_nav">
+        <!-- <h4 class="center">New to the Footy app?</h4>
+        <h3 class="center">Sign up for Free!</h3>
+        <p class="center">It's simple and easy.</p>
+        <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
+        <hr> -->
+        <h2 class="center">Hello, Sign in</h2>
+        <h5 class="center">your footy™ account.</h5>
+
+        <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
+    </div>
+    <h4 class="center">theFOOTY™app</h4>
+</div>
+    <% end %>
+
+<div class="right_column">
+        
+    <div class="feed_border">
+
+<hr class="small_line_break">
+        
+        <h2>Event News</h2>
+        <h6>This weeks sponsored events</h6>
+    </div>
+
+    <div class="feed_border">
+        <h4>VAN DOREN INVITATIONAL 2015</h4>
+        <hr class = "line-break">
+        <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/08/Screen-Shot-2015-08-01-at-9.04.10-PM-600x383.png" />
+        <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+        <p class="black">Ben Hatchell is crowned champion for his second Van Doren Invitational title since winning the inaugural Van Doren Invitational in 2013.</p>
+        <p><a  class="blue" href="http://www.vansusopenofsurfing.com/2015-skate">Full Details...</a></p>
+    </div>
+
+
+
+    <div class="feed_border">
+    <h4>LANCE MOUNTAIN SIGNED FLIP BOARD GIVEAWAY</h4>
+    <hr class = "line-break">
+        <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/TcoRy3lGp3E8_9OZTW53JzLaUN2rZw9Rr7msSiXxJ7qU75YPvgNwKr6fB2nWOmWBS2x9zeUdx6Gy1KLwHz5dKo0Dxvih-bmOaYEPNTYQoxYa6_Hcse-znq2wF2J5yWeLxV4h2nF8SY-i-XPf0GOcu3r45aytNHP4M4RYoKdCACTZAETxuGTrXf5b5okf2gjfbK16AwTFzOmZY6xMZdSqvbkAmWh-600x400.jpg" />
+        <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+        <p class="black">Want a signed Lance Mountain Flip board? Flip will be picking one winner each week for the next four weeks. Four winners total! Giveaway ends Friday, August 14, 2015</p>
+        <!-- <br> -->
+        <p><a  class="blue" href="https://www.facebook.com/nhsfunfactory?sk=app_190322544333196&ref=s">Click here to enter!</a></p>
+    </div>
+    <div class="feed_border">
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <h4>"TRIALS AND TRIBULATIONS" VIDEO</h4>
+    <hr class = "line-break">
+    <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/Screen-Shot-2015-07-28-at-4.41.23-PM-600x334.png" />
+    <p class="black">Sure, the video part is the fine tuned, final presentation, but sometimes the raw, behind-the-scenes footy tells an even better story. Clive is a savage.</p>
+    <p><a  class="blue" href="http://www.thrashermagazine.com/articles/videos/clive-dixons-trials-and-tribulations-video/">More details...</a></p>
+    <!-- <br> -->
+    </div>
+    <div class="feed_border">
+    <img alt="Icon" src="http://skateparkoftampa.com/spot/images3/damn-am-frontpage2.png" />
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <h4>DAMN AM COSTA MESA, CA</h4>
+    <p class="blue">August 7-9, 2015</p>
+    <hr class = "line-break">
+    <h4>DAMN AM WOODWARD, PA</h4>
+    <p class="blue">August 27-29, 2015</p>
+    </div>
+    <div class="feed_border">
+    <h4>SUBSCRIBE TO THRASHER</h4>
+    <p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+    <img alt="Icon" src="http://www.thrashermagazine.com/imagesV2/Junk_Drawer/2015/07/300aug15.jpg" />
+    <hr class = "line-break">
+    <p><a  class="blue" href="http://shop.thrashermagazine.com/subscriptions/united-states.html">Click here to SUBSCRIBE!</a></p>
+    </div>
+
+    <div class="feed_border">
+    <h4>Contact US</h4>
+    <h4>THE FOOTY™ APP</h4>
+    <p class="blue">garrettmckenzie@ymail.com</p>
+    <hr class = "line-break">
+    </div>
+
+
+                    
+
+<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
+<select hidden, id = "marker_data" multiple>
+<% @posts.each do |post| %>
+  <option selected = "true" value = "<%= post.latitude%>,<%= post.longitude%>, <%= post.title%>, <=% post.id %>">
+  </option> 
+<% end %>
+</select>
+
+

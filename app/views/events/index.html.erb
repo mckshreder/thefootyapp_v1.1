@@ -1,0 +1,340 @@
+    
+
+<script>
+//= require jquery.turbolinks
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 10,
+    // mapTypeId: google.maps.MapTypeId.HYBRID
+  };
+  // google.maps,Map creates map on div canvas
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // this creates a location of the current users location 
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          // this assigns the current users coordinats as pos
+          var pos = new google.maps.LatLng(position.coords.latitude,
+                                         position.coords.longitude);
+          // below creates the info window marker for current user location
+          var infowindow = new google.maps.InfoWindow({
+            // must use map
+            map: map,
+            // assigns the window to show on map at current user location
+            position: pos,
+            content: 'your current location.'
+          });
+
+
+          // brings the users map to center their location
+        map.setCenter(pos);
+    });
+
+    handleNoGeolocation(true);
+  }
+  else {
+    // Browser doesn't support Geolocation
+      handleNoGeolocation(false);
+    }
+    
+    // variable for all markers in event.all. We extract the data from the <select hidden, id = "marker_data" multiple> tag. data is ["123.1,-76.928"] Jquery
+    var markers = $("#marker_data").val();
+
+  for (var i = 0; i < markers.length; i++) {
+    // this splits data into two seperate strings of an array. Erase ","
+    var coordinates = markers[i].split(",");
+    // Number takes array turns strings into numbers for google pos variable
+    var pos = new google.maps.LatLng(Number(coordinates[0]),Number(coordinates[1]));
+        console.log(pos);
+
+      
+        // this creates the marker in the user view
+    var marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: pos,
+        map: map
+    });
+
+    // this creates zoom when user clicks marker
+    google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+}
+
+// jquery call to initalize () on load basically
+$(document).ready(function() {
+  initialize();
+});
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<!-- this contains the map on the view -->
+<% flash.each do |key, value| %>
+    <h4><%= value %></h4>
+<% end %>
+
+
+
+<div class="feed_container">
+<!-- this contains the map on the view -->
+<div class="left_column">
+
+    <div class="feed_border">
+      <h4 class="left">the FOOTY™app</h4>
+      <h2>
+      CONTACT COMPANIES!
+        </h2>
+      <hr class="small_line_break">
+      <h4 class="right">Send your footy and your favoite company.</h4>
+    </div>
+  <div class="home_info"> 
+    <ul class="text_list">
+    <h3>FEATURED COMPANIES</h3>
+      <li>
+        <p>#1. Please contact the company of your choice!</p>
+      </li>
+      <li>
+        <p>#2. Click a company's logo icon.</p>
+      </li>
+      <li>
+        <p>#3. Then send them a message and ask them to check out your footy!</p>
+      </li>
+    </ul>
+  </div>
+  <hr class = "line-break" >
+
+
+
+      
+      <h2>
+        <!--  <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %> -->
+      </h2>
+    
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/5091mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1411mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1089mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1244mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1430mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1004mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1570mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+            <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1263mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1175mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/5033mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1226mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1013mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1017mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+             <a class="inline" href="">
+            <img src="http://skateparkoftampa.com/spot/productimages/1065mfgr.jpg" class= "company_profile_photo_tag" >
+            </a>
+
+</div>
+</div>
+  
+  <% if @events.count > 0 %>
+    <% @events.each do |event| %>
+
+    <% end %>
+    </div>
+</div>  
+
+<% else %>
+    <h2>No COMPANIES Exist</h2>
+<% end %>
+</div>
+</div>
+
+
+
+
+<!-- this is the "sign in or sign up forum" -->
+<% if current_user %>
+<!-- start of the right column -->
+<div class="right_column">
+    <ul id="topright_nav">
+    <li>
+     <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+          <small>Hello, </small>
+            
+            <%= link_to "#{current_user.name}", user_profile_path(current_user) %>
+            
+          <!-- <span class="glyphicon glyphicon-cog" aria-hidden="true">
+          </span> -->
+          
+          <ul> 
+            <li>
+                 <a><%= link_to "Your Profile", user_profile_path(current_user)%>
+                 </a>
+            </li> 
+            <li>
+                <a><%= link_to "Edit Account", edit_users_path(current_user) %>
+                </a>
+            </li>  
+            <li>
+                <a><%= link_to "Log out", destroy_session_path %>
+                </a>
+            </li>  
+          </ul>
+        </li>
+    </ul>
+    
+    <div class="feed_border">
+      <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+      <hr class = "line_break">
+      <h3 class="center">
+        Are you a company?
+      </h3>
+      <h5 class="center">DO YOU WANT TO START A MOVEMENT?</h5>
+      <a class="submit-button-create, large_button" href="/posts/new">
+       PLEASE APPLY HERE
+      </a>
+
+    </div>
+
+<% else %>
+<div class="right_column">
+<div id="topright_nav">
+    
+    <h4 class="center">
+      New to the Footy app?
+    </h4>
+    
+    <h3 class="center">
+      Sign up for Free!
+    </h3>
+    
+    <p class="center">
+      It's simple and easy.
+    </p>
+    
+    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>   
+<hr>
+    <h2 class="center">
+      Hello, Sign in
+    </h2>
+    
+    <h5 class="center">
+      your footy™ account.
+    </h5>
+    
+    <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>  
+<hr>
+</div>
+
+<% end %>
+<!-- <iframe src="http://www.kcrw.com/breakout-player?api_url=http://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show/player.json&autoplay=false" width="100%" height="28%" frameborder="2" scrolling="yes" seamless="seamless"></iframe> -->
+
+<!-- this is where the map begins -->
+  <div class="feed_border">
+    <h4 class="left">Find companies near you</h4>
+  </div>
+  <h4 class="left">the FOOTY™app</h4>
+  <div id="map-canvas">
+  </div>
+  
+  <div class="feed_border">
+    <!-- <h6 class="black" id = "event_logo">COMPANIES</h6> -->
+    <h4><a  class="blue, right" href="">Search by Map here</a></h4>
+  </div>
+
+  <div class="feed_border">
+    <h4>VAN DOREN INVITATIONAL 2015</h4>
+    <hr class = "line-break">
+    <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/08/Screen-Shot-2015-08-01-at-9.04.10-PM-600x383.png" />
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <p class="black">Ben Hatchell is crowned champion for his second Van Doren Invitational title since winning the inaugural Van Doren Invitational in 2013.</p>
+    <p><a  class="blue" href="http://www.vansusopenofsurfing.com/2015-skate">Full Details...</a></p>
+  </div>
+
+
+
+  <div class="feed_border">
+  <h4>LANCE MOUNTAIN SIGNED FLIP BOARD GIVEAWAY</h4>
+  <hr class = "line-break">
+    <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/TcoRy3lGp3E8_9OZTW53JzLaUN2rZw9Rr7msSiXxJ7qU75YPvgNwKr6fB2nWOmWBS2x9zeUdx6Gy1KLwHz5dKo0Dxvih-bmOaYEPNTYQoxYa6_Hcse-znq2wF2J5yWeLxV4h2nF8SY-i-XPf0GOcu3r45aytNHP4M4RYoKdCACTZAETxuGTrXf5b5okf2gjfbK16AwTFzOmZY6xMZdSqvbkAmWh-600x400.jpg" />
+    <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+    <p class="black">Want a signed Lance Mountain Flip board? Flip will be picking one winner each week for the next four weeks. Four winners total! Giveaway ends Friday, August 14, 2015</p>
+    <!-- <br> -->
+    <p><a  class="blue" href="https://www.facebook.com/nhsfunfactory?sk=app_190322544333196&ref=s">Click here to enter!</a></p>
+  </div>
+  <div class="feed_border">
+  <!-- if you change these links look at .feed_border h4 and .feed_border p before. Just incase you dont need it -->
+  <h4>"TRIALS AND TRIBULATIONS" VIDEO</h4>
+  <hr class = "line-break">
+  <img alt="Icon" src="http://cdn.skateboarding.transworld.net/wp-content/blogs.dir/440/files/2015/07/Screen-Shot-2015-07-28-at-4.41.23-PM-600x334.png" />
+  <p class="black">Sure, the video part is the fine tuned, final presentation, but sometimes the raw, behind-the-scenes footy tells an even better story. Clive is a savage.</p>
+  <p><a  class="blue" href="http://www.thrashermagazine.com/articles/videos/clive-dixons-trials-and-tribulations-video/">More details...</a></p>
+  <!-- <br> -->
+  </div>
+ 
+
+  <div class="feed_border">
+  <h4>Contact US</h4>
+  <h4>THE FOOTY™ APP</h4>
+  <p class="blue">garrettmckenzie@ymail.com</p>
+  <hr class = "line-break">
+  </div>
+
+
+
+
+
+<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
+<select hidden, id = "marker_data" multiple>
+<% @events.each do |event| %>
+  <option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>">
+  </option> 
+<% end %>
+</select>
