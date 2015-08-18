@@ -522,6 +522,23 @@ a.blob{
         to {background-color:#0088ff !important;}
 }
 
+
+/*this is for the buttons above event rsvp*/
+.rsvp_button {
+  font-size: 1vw !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+/*  padding-top: 5%;
+  padding-bottom: 5%;*/
+  color:white !important;
+  width:30% !important;
+  overflow: hidden;
+  float: left;
+  background-color: #0088ff !important;
+
+  }
+
 /*The right column containing the posts*/
  .right_column {
   width: 33%;
