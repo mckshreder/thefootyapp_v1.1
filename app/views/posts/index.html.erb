@@ -93,17 +93,15 @@ $(document).ready(function() {
 <div class="left_column">
 	<div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
-      <h2>
-      DO YOU WANT TO GET SPONSORED?
-        </h2>
-      <hr class="small_line_break">
-      <h4 class="right">Send your favorite company your footy.</h4>
+      <h2 class="left">
+      HOW IT WORKS...
+      </h2>
     </div>
-	<div class="home_info">
+	<div class="home_info" id ="pink">
 		
 		
 		<ul class="text_list">
-		<h3>How it works...</h3>
+		
 			<li>
 				<p>#1. Have fun and skate with your bros everyday!</p>
 			</li>
@@ -116,16 +114,13 @@ $(document).ready(function() {
 			<li>
 				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
 			</li>
-			<p>Note: We encouraged you to stay determined and continue to make videos as your skateboarding and camera skills will only improve.</p>
-
 		</ul>
 	</div>
 	<hr class = "line-break" >
 
 <!-- the start of the popular feed on home page -->
 	<div class="feed_border">
-	<h2>What's poppin'? </h2>
-	<h6>This weeks featured skaters</h6>
+	<h3 class ="left">TODAY'S FEATURED SKATERS</h3>
 	</div>
 	
 	<% if @posts.count > 0 %>
@@ -144,15 +139,10 @@ $(document).ready(function() {
 		        <%= "  " + (remove_unwanted_words distance_of_time_in_words(Time.now, post.updated_at)) + " ago"  %>
 		    </div>
             </div> 
-            
-<!--    
-	</div> -->
 
-        <!--  <div class = "large_link_photo">
-              <%=image_tag("https://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 21, :height => 21, :crop => :fill, class: "user_large_photo_tag") %><%= link_to post.user.name, user_profile_path(post.user_id), :class => "large_link_photo" %>
-         </div>   -->            
-		 <div class="embed-responsive embed-responsive-16by9",><%= embed(post.youtube_url) %>
-         </div>
+        <div class="center">
+        	<%= cl_video_tag(post.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>493, :crop=>:scale, :controls => true, :poster => true, :fallback_content => "Your browser does not support HTML5 video tags")%>
+      	</div>
 		
 		<div class="video-poster, info-on-feed">
 	
@@ -261,8 +251,11 @@ $(document).ready(function() {
 	</div>
     <% end %>
 
-     <div class="feed_border">
+	    <h4 class="left">theFOOTY™map</h4>
+		<div id="map-canvas">
+		</div>
       <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+     <div class="feed_border">
 	    <hr class = "small_line_break">
 	    <h3 class="center">
         Share your footy!
@@ -271,9 +264,6 @@ $(document).ready(function() {
 	        PLACE AD HERE
       </a>
 
-	    <h4 class="left">theFOOTY™app</h4>
-		<div id="map-canvas">
-		</div>
 		  
 		<div class="feed_border">
 		<h4><a  class="blue, right" href="users/map">Search Ads with Map</a></h4>
