@@ -28,7 +28,7 @@
     <div class="form-group">
     <%= f.label 'Upload A Video'%>
     <%= f.hidden_field(:video_cache)%>
-    <%= f.file_field(:video, :html => { :multiple => true })%>
+    <%= f.file_field(:video, :chunk_size => 6_000_000, :html => { :multiple => true })%>
     </div>
 
 
