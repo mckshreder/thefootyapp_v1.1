@@ -107,8 +107,7 @@ $(document).ready(function() {
 
     <div class="home_info">
       <h2>
-          <!--<%= image_tag @user.image.url(:medium),class: "big_profile_photo_tag" %>-->
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg",class: "big_profile_photo_tag") %>
+          <%= cl_image_tag(@user.image, :crop => :fill, class: "event_photo_tag") %>
       </h2>
       <ul class="text_list">
       
@@ -258,17 +257,19 @@ $(document).ready(function() {
     <div class="feed_border">
       <hr class = "small_line_break">
         <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+    <% if current_user %>
+      <%= link_to "EDIT YOUR ACCOUNT", edit_users_path(current_user), class: "submit-button, large_button"  %>
+      <%= link_to "LOG OUT", destroy_session_path, class: "submit-button, large_button"  %>
+    <% else %>
+    <% end %>
       </div>
     </div>
 <div class="right_column">
     <div class="feed_border">
 
-      <!--   <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width=>"100%", :crop => :fill) %>
-     -->
-    <!-- this is the div just below the profile photo -->
-    
+
      <hr class="small_line_break">
-        <h4>Contact info:</h4>
+     <h5 class="center">CONTACT INFO:</h5>
         <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
 
     </div>
@@ -297,7 +298,8 @@ $(document).ready(function() {
   <div class="feed_border">
   
   <!-- this is the div just below the map on right -->
-  
+
+              
    <hr class="small_line_break">
       <h4>Contact info:</h4>
       <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>

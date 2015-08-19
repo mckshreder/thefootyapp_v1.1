@@ -225,32 +225,30 @@ $(document).ready(function() {
 		</ul>
 	<% else %>
 
-	<div id="topright_nav">
-    <h4 class="center">New to the Footy app?</h4>
-    <h3 class="center">Sign up for Free!</h3>
-    <p class="center">It's simple and easy.</p>
-    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>
-    <hr>
-	<h2 class="center">Hello, Sign in</h2>
-	<h5 class="center">your footy™ account.</h5>
-	<%= form_for @user, url: create_session_path do |f| %>
-
-    <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control"%>
+	<div class="feed_border">
+        <h4 class="left">theFOOTY™app</h4>
+        <h2 class="left">ALREADY A MEMBER?</h2>
     </div>
+    <div class = "feed_border">
+        <h5 class="center">SIGN IN TO YOUR FOOTY ACCOUNT</h5>
+        <%= form_for @user, url: create_session_path do |f| %>
 
-    <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control"%>
-    </div>
+        <div class="form_group">
+        <%= f.email_field :email, :placeholder => 'EMAIL', class: "form-control" %>
+        </div>
     
-    <%= f.submit "Log in", class: "submit-button-create, large_button" %>
-<hr>
-<% end %> 
-	</div>
+        <div class="form_group"> 
+        <%= f.password_field :password, :placeholder => 'PASSWORD', class: "form-control" %>
+        </div>
+    
+        <%= f.submit "Log in", class: "submit-button-create, large_button" %>
     <% end %>
+    </div>
 
+<% end %> 
+
+
+		<div class="feed_border">
 	    <h4 class="left">theFOOTY™map</h4>
 		<div id="map-canvas">
 		</div>

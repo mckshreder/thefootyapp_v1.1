@@ -36,6 +36,12 @@
     def create
         @user = User.new(user_params)
 
+        if params[:image_id].present?
+        preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+        raise "Invalid upload signature" if !preloaded.valid?
+        @user.image_id = preloaded.identifier
+        end
+
         respond_to do |format|
       if @user.save && @user.authenticate(user_params[:password])
 
@@ -43,7 +49,7 @@
         
         session[:user_id] = @user.id
         flash["alert-success"] = "Hi #{current_user.name}! You are now logged in."
-        format.html { redirect_to posts_path, notice: 'User was successfully created. Please sign in below.' }
+        format.html { redirect_to posts_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -67,7 +73,11 @@
     def update
         @user = User.find(params[:id])
 
-
+        if params[:image_id].present?
+        preloaded = Cloudinary::PreloadedFile.new(params[:image_id])         
+        raise "Invalid upload signature" if !preloaded.valid?
+        @user.image_id = preloaded.identifier
+        end
 
       respond_to do |format|
         if @user.update(user_params) 

@@ -14,10 +14,6 @@
  *= require_self
  *= require jquery-ui
  */
- .bar {
-    height: 18px;
-    background: green;
-}
 body{
   background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
   background-repeat: none;
@@ -273,6 +269,16 @@ padding-left: 1%;
 padding-right: 1%;
 color: white;
 border:none;
+/*border-bottom: 1px black solid;*/
+}
+
+.signup_form{
+/*border-top: 1.5px black solid;*/
+padding-left: 3%;
+padding-right: 3%;
+color: black;
+border:none;
+line-height: 18px;
 /*border-bottom: 1px black solid;*/
 }
 
