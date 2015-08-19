@@ -5,14 +5,13 @@ Rails.application.routes.draw do
     root "posts#index"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
-    # get "/users/eventmap" => "users#eventmap", as: :event_map
     get "/users/new" => "users#new", as: :new_user
     get "/users/map" => "users#map", as: :user_map
     get "/users/:id" => "users#show", as: :user_profile
-    get "/users/:id/edit" => "users#edit", as: :edit_users
     get "/users/landing_page" => "users#landing_page"
-    
-    patch "users/:id" =>"users#update", as: :update_user
+    get "/users/:id/edit" => "users#edit", as: :edit_users
+    put "/users/:id" => "posts#update", as: :update_user
+    patch "users/:id" =>"users#update"
     delete "/users/:id" => "users#destroy"
 
     get "/sessions/new" => "sessions#new", as: :new_session
