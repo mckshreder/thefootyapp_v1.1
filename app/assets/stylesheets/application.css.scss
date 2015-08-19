@@ -505,10 +505,11 @@ a.blob{
   padding-bottom: 5%;
   color:white !important;
   width:100% !important;
-  overflow: hidden; 
+  overflow: hidden;
+  background-color:#0088ff !important; 
 
   /*both button backgrounds change color*/
-  -webkit-animation-name: buttonChangeColor; 
+  /*-webkit-animation-name: buttonChangeColor; 
   -webkit-animation-duration: 2s; 
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction:alternate;
@@ -523,9 +524,9 @@ a.blob{
        }
 
     
-}
+}*/
 /*both button bacgrounds change color*/
-@-webkit-keyframes buttonChangeColor{
+/*@-webkit-keyframes buttonChangeColor{
         from {background-color: #da3905 !important;}
         to {background-color:#0088ff !important;}
 }
@@ -533,8 +534,8 @@ a.blob{
 @keyframes buttonChangeColor{
         from {background-color: #da3905 !important;}
         to {background-color:#0088ff !important;}
+*/
 }
-
 
 /*this is for the buttons above event rsvp*/
 .rsvp_button {
@@ -547,6 +548,22 @@ a.blob{
   padding-bottom: 5%;*/
   color:white !important;
   width:30% !important;
+  overflow: hidden;
+  float: left;
+  background-color: #0088ff !important;
+
+  }
+
+  .right_column_button {
+  font-size: 1em !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+
+/*  padding-top: 5%;
+  padding-bottom: 5%;*/
+  color:white !important;
+  width:49% !important;
   overflow: hidden;
   float: left;
   background-color: #0088ff !important;
