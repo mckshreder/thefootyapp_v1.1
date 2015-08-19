@@ -232,6 +232,7 @@ position: relative;
   width: 43%;
   /*max-width: 493px;*/
   margin-left: 9.5%;
+  margin-top: -23px !important;
 /*  margin-top:25px;*/
   float:left;
   text-align: center;
@@ -269,6 +270,16 @@ padding-left: 1%;
 padding-right: 1%;
 color: white;
 border:none;
+/*border-bottom: 1px black solid;*/
+}
+
+.signup_form{
+/*border-top: 1.5px black solid;*/
+padding-left: 3%;
+padding-right: 3%;
+color: black;
+border:none;
+line-height: 18px;
 /*border-bottom: 1px black solid;*/
 }
 
@@ -495,10 +506,11 @@ a.blob{
   padding-bottom: 5%;
   color:white !important;
   width:100% !important;
-  overflow: hidden; 
+  overflow: hidden;
+  background-color:#0088ff !important; 
 
   /*both button backgrounds change color*/
-  -webkit-animation-name: buttonChangeColor; 
+  /*-webkit-animation-name: buttonChangeColor; 
   -webkit-animation-duration: 2s; 
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-direction:alternate;
@@ -513,9 +525,9 @@ a.blob{
        }
 
     
-}
+}*/
 /*both button bacgrounds change color*/
-@-webkit-keyframes buttonChangeColor{
+/*@-webkit-keyframes buttonChangeColor{
         from {background-color: #da3905 !important;}
         to {background-color:#0088ff !important;}
 }
@@ -523,8 +535,8 @@ a.blob{
 @keyframes buttonChangeColor{
         from {background-color: #da3905 !important;}
         to {background-color:#0088ff !important;}
+*/
 }
-
 
 /*this is for the buttons above event rsvp*/
 .rsvp_button {
@@ -543,12 +555,28 @@ a.blob{
 
   }
 
+  .right_column_button {
+  font-size: 1em !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 1px black solid;
+  margin: 1px;
+/*  padding-top: 5%;
+  padding-bottom: 5%;*/
+  color:white !important;
+  width:49% !important;
+  overflow: hidden;
+  float: left;
+  background-color: #0088ff !important;
+
+  }
+
 /*The right column containing the posts*/
  .right_column {
-  width: 38%;
+  width: 37%;
   /*max-width: 441px;*/
   margin-right: 9.5%;
-  margin-top:0.5%;
+  margin-top: -23px !important;
   float:right;
   padding-left: 0.5%;
   padding-right: 0.5%;

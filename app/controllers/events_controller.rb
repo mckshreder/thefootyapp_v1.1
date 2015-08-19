@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all.order('created_at DESC')
+    @user = User.new
   end
 
   # GET /events/1

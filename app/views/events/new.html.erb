@@ -21,49 +21,46 @@
     </div>
   <div class="home_info"> 
     <ul class="text_list">
-
-
-
         
-<%= form_for @event, :method => :post do |f| %>
-   
-    <div class="form-group">
-    <%= f.label 'Upload A Photo'%>
-    <%= f.hidden_field(:image_cache)%>
-    <%= f.file_field(:image, :html => { :multiple => true })%>
-    </div>
+    <%= form_for @event, :method => :post do |f| %>
+       
+        <div class="form-group">
+        <%= f.label 'Upload A Photo'%>
+        <%= f.hidden_field(:image_cache)%>
+        <%= f.file_field(:image, :html => { :multiple => true })%>
+        </div>
 
-    <div class="form-group">
-    <%= f.label 'Upload A Video'%>
-    <%= f.hidden_field(:video_cache)%>
-    <%= f.file_field(:video, :chunk_size => 6_000_000, :html => { :multiple => true })%>
-    </div>
+        <div class="form-group">
+        <%= f.label 'Upload A Video'%>
+        <%= f.hidden_field(:video_cache)%>
+        <%= f.file_field(:video, :chunk_size => 6_000_000, :html => { :multiple => true })%>
+        </div>
 
 
-    <div class="form-group">
-    <%= f.label 'Title' %>
-    <%= f.text_field :title, class: "form-control"%>
-    </div>
+        <div class="form-group">
+        <%= f.label 'Title' %>
+        <%= f.text_field :title, class: "form-control"%>
+        </div>
 
-    <div class="form-group">
-    <%= f.label 'Date' %>
-    <%= f.text_field :date, class: "form-control"%>
-    </div>
-    
-    <div class="form-group">
-    <%= f.label 'Event Info' %>
-    <%= f.text_field :info, class: "form-control" %>
-    </div>
+        <div class="form-group">
+        <%= f.label 'Date' %>
+        <%= f.text_field :date, class: "form-control"%>
+        </div>
+        
+        <div class="form-group">
+        <%= f.label 'Event Info' %>
+        <%= f.text_field :info, class: "form-control" %>
+        </div>
 
-    <div class="form-group">
-    <%= f.label 'Address (City, State)' %>
-    <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
-    </div>
+        <div class="form-group">
+        <%= f.label 'Address (City, State)' %>
+        <%= f.text_field :address, class: "form-control", placeholder: "eg.(Whittier, CA)" %>
+        </div>
 
-    <%= f.submit "PUBLISH EVENT", class: "submit-button-create", id: "submit_event" %>
+        <%= f.submit "PUBLISH EVENT", class: "submit-button-create", id: "submit_event" %>
 
-<% end %>
- </ul>
+    <% end %>
+    </ul>
   </div>
 </div>
 
@@ -77,7 +74,7 @@
 
         <ul id="topright_nav">
         <li>
-            <!--<%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>-->
+            <%= cl_image_tag(current_user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
                 <small>Hello, </small>
                   
                   <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
@@ -107,7 +104,13 @@
     <div class="feed_border">
       <hr class = "small_line_break">
         <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
-      </div>
+    <% if current_user %>
+      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
+      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
+      <%= link_to "EDIT ACCOUNT", edit_users_path(current_user), class: "right_column_button"  %>
+      <%= link_to "LOG OUT", destroy_session_path, class: "right_column_button"  %>
+    <% else %>
+    <% end %>
     </div>
 
 
@@ -154,3 +157,10 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+     $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
+$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+});
+    });
+</script>
