@@ -104,7 +104,13 @@
     <div class="feed_border">
       <hr class = "small_line_break">
         <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
-      </div>
+    <% if current_user %>
+      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
+      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
+      <%= link_to "EDIT ACCOUNT", edit_users_path(current_user), class: "right_column_button"  %>
+      <%= link_to "LOG OUT", destroy_session_path, class: "right_column_button"  %>
+    <% else %>
+    <% end %>
     </div>
 
 

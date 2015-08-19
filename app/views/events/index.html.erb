@@ -196,6 +196,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
           </ul>
         </li>
     </ul>
+    
+  <div class="feed_border">
+      <hr class = "small_line_break">
+        <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+    <% if current_user %>
+      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
+      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
+      <%= link_to "EDIT ACCOUNT", edit_users_path(current_user), class: "right_column_button"  %>
+      <%= link_to "LOG OUT", destroy_session_path, class: "right_column_button"  %>
+    <% else %>
+    <% end %>
+  </div>
+
   <h4 class="left">the FOOTY™map</h4>
   <div id="map-canvas">
   </div>
@@ -214,36 +227,28 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <% else %>
 <div class="right_column">
-<div id="topright_nav">
-    
-    <h4 class="left">the FOOTY™map</h4>
-    <div id="map-canvas">
+<div class="feed_border">
+        <h4 class="left">theFOOTY™app</h4>
+        <h2 class="left">ALREADY A MEMBER?</h2>
     </div>
     
-    <h4 class="center">
-      New to the Footy app?
-    </h4>
+    <div class = "feed_border">
+        <h5 class="center">SIGN IN TO YOUR FOOTY ACCOUNT</h5>
+    <%= form_for @user, url: create_session_path do |f| %>
+
+        <div class="form_group">
+        <%= f.email_field :email, :placeholder => 'EMAIL', class: "form-control" %>
+        </div>
     
-    <h3 class="center">
-      Sign up for Free!
-    </h3>
+        <div class="form_group"> 
+        <%= f.password_field :password, :placeholder => 'PASSWORD', class: "form-control" %>
+        </div>
     
-    <p class="center">
-      It's simple and easy.
-    </p>
-    
-    <%= link_to "Create New Account", new_user_path, class: "submit-button, large_button" %>   
-<hr>
-    <h2 class="center">
-      Hello, Sign in
-    </h2>
-    
-    <h5 class="center">
-      your footy™ account.
-    </h5>
-    
-    <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>  
-<hr>
+        <%= f.submit "LOG IN", class: "submit-button-create, large_button" %>
+    <% end %>
+    <h5 class="center">NOT A MEMBER...?</h5>
+    <%= link_to "CREATE YOUR ACCOUNT", new_event_path, class: "submit-button-create, large_button"  %>
+    </div>
 </div>
 
 <% end %>
@@ -252,8 +257,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- this is where the map begins -->
 
 
-  
+<div class="right_column">
   <div class="feed_border">
+    <h4 class="left">the FOOTY™map</h4>
+    <div id="map-canvas">
+    </div>
     <!-- <h6 class="black" id = "event_logo">COMPANIES</h6> -->
     <h4><a  class="blue, right" href="">Search by Map here</a></h4>
   </div>

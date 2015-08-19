@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
+
+<div class="feed_border">
+      <hr class = "small_line_break">
+        <h5 class="center">YOUR FOOTY™ DASHBOARD</h5>
+    <% if current_user %>
+      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
+      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
+      <%= link_to "EDIT ACCOUNT", edit_users_path(current_user), class: "right_column_button"  %>
+      <%= link_to "LOG OUT", destroy_session_path, class: "right_column_button"  %>
+    <% else %>
+    <% end %>
+</div>
 <%= cl_video_tag(@event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>520, :crop=>:scale, :controls => true, :poster => false, :fallback_content => "Your browser does not support HTML5 video tags")%>
 <%= cl_image_tag(@event.image, :crop => :fill, :width => 520, :height => 380) %>
 <%= cl_image_tag("zrhjwj7xgdo35odzscvi.gif", :resource_type=>"video") %>
