@@ -137,7 +137,7 @@ $(document).ready(function() {
     <div class = "large_feed">
 
       <div class="video_top_info">
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+        <%= cl_image_tag(post.user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
         <%= "  " %>
         <%= post.user.name %>
         
@@ -212,7 +212,7 @@ $(document).ready(function() {
 <% if current_user %>
     <ul id="topright_nav">
     <li>
-     <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+     <%= cl_image_tag(current_user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
           <small>Hello, </small>
             
             <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
@@ -275,14 +275,22 @@ $(document).ready(function() {
     </div>
 
 <% end %>
-<!-- <iframe src="http://www.kcrw.com/breakout-player?api_url=http://www.kcrw.com/music/shows/morning-becomes-eclectic/latest-show/player.json&autoplay=false" width="100%" height="28%" frameborder="2" scrolling="yes" seamless="seamless"></iframe> -->
+
 
 <!-- this is where the map begins -->
+<div class="feed_border">
+      <h3 class="center">
+        GOT SKATE FOOTY?
+      </h3>
+      <h5 class="center">UPLOAD YOUR FOOTY FOR FREE</h5>
+      <a class="submit-button-create, large_button" href="/events/new">
+       CREATE POST
+      </a>
 
-  <h4 class="left">theFOOTY™app</h4>
+  <h4 class="left">theFOOTY™map</h4>
   <div id="map-canvas">
   </div>
-  
+  </div>
   <div class="feed_border">
     <!-- <h6 class="black" id = "event_logo">COMPANIES</h6> -->
     <h4><a  class="blue, right" href="">Search with Map here</a></h4>

@@ -154,7 +154,7 @@ $(document).ready(function() {
     <div class = "large_feed">
 
       <div class="video_top_info">
-        <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :crop => :fill, class: "user_profile_photo_tag") %>
+      <%= cl_image_tag(post.user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
         <%= "  " %>
         <%= post.user.name %>
         
@@ -230,8 +230,8 @@ $(document).ready(function() {
 
         <ul id="topright_nav">
         <li>
-            <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
-                <small>Hello, </small>
+            <%= cl_image_tag(current_user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
+            <small>Hello, </small>
                   
                   <a><%= link_to "#{current_user.name}", user_profile_path(current_user) %>
                   </a>
@@ -270,11 +270,6 @@ $(document).ready(function() {
     </div>
 
 
-    </div>
-
-</div>
-
-<div class="right_column">
   <div class="feed_border">
         <h4 class="left">the FOOTY™app</h4>
         
@@ -285,7 +280,7 @@ $(document).ready(function() {
           <a class="blue, right" href="">Search by Map here</a>
         </p>
   </div>
-</div>
+
 
 
 
@@ -304,8 +299,7 @@ $(document).ready(function() {
       <%= link_to "Message #{@user.name.split.first}", user_profile_path, class: "submit-button, large_button" %>
 
   </div>
-</div>
-<div class="right_column">
+
     <div id="topright_nav">
         <!-- <h4 class="center">New to the Footy app?</h4>
         <h3 class="center">Sign up for Free!</h3>
@@ -318,10 +312,10 @@ $(document).ready(function() {
         <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
     </div>
     <h4 class="center">theFOOTY™app</h4>
-</div>
+
     <% end %>
 
-<div class="right_column">
+
         
     <div class="feed_border">
 

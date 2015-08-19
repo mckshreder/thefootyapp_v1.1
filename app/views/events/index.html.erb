@@ -172,7 +172,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <!-- start of the right column -->
     <ul id="topright_nav">
     <li>
-     <%=image_tag("http://ze-media.tn/wp-content/uploads/2014/12/facebook-mbarek-boukhari-zemedia.jpg", :width => 40, :height => 40, :crop => :fill, class: "user_profile_photo_tag") %>
+     <%= cl_image_tag(current_user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
           <small>Hello, </small>
             
             <%= link_to "#{current_user.name}", user_profile_path(current_user) %>
@@ -210,8 +210,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </div>
 
     <div class="feed_border">
-      <p class="center">YOUR FOOTY™ DASHBOARD</p>
-      <hr class = "line_break">
       <h3 class="center">
         HAVING A SKATE EVENT?
       </h3>
@@ -219,7 +217,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <a class="submit-button-create, large_button" href="/events/new">
        CLICK TO MAKE EVENT
       </a>
-
     </div>
 
 <% else %>
@@ -297,19 +294,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <p class="blue">garrettmckenzie@ymail.com</p>
   <hr class = "line-break">
   </div>
+<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact r
 </div>
 
 
 
 
-
-<!-- this creates ruby data in the view that can be accessed by JS if the <script> is on same exact file. multiple allows JS to know there is multple data  -->
-<select hidden, id = "marker_data" multiple>
-<% @events.each do |event| %>
-  <option selected = "true" value = "<%= event.latitude%>,<%= event.longitude%>,<%= event.title%>,<%= event.date%>,<%= event.address%>">
-  </option>
-  <option id = "id" selected = "true" value = "<%= event.id%>">
-  </option>  
-
-<% end %>
-</select>
