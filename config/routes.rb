@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     get "/users/new" => "users#new", as: :new_user
     get "/users/map" => "users#map", as: :user_map
     get "/users/about" => "users#about", as: :about_footy
-    get "/users/:id" => "users#show", as: :user_profile
     get "/users/landing_page" => "users#landing_page"
+    get "/users/:id" => "users#show", as: :user_profile
     get "/users/:id/edit" => "users#edit", as: :edit_users
     put "/users/:id" => "posts#update", as: :update_user
-    patch "users/:id" =>"users#update"
+    patch "/users/:id" =>"users#update"
     delete "/users/:id" => "users#destroy"
 
 

@@ -688,10 +688,45 @@ font-family: 'Michroma', sans-serif, !important;
     margin: 5px;  
 }
 
-.landing-page {
-
-  background: black;
+/*the css for the langing home page*/
+.landing_photo {
+position: absolute;
+top: 0;
+left: 0;
+background: black;
+z-index: 0;
 }
+
+.landing_nav{
+  position: absolute;
+  margin-left: 16.5%;
+  margin-top: 23%;
+}
+
+.landing_button {
+  z-index: 15;
+  border: 4px white solid;
+  color: white;
+  font-size: 4vw;
+  display: inline;
+  margin: 4%;
+  padding: 13px;
+
+}
+
+.landing_slogan{
+  position: absolute;
+  margin-left: 26.3%;
+  margin-top: -5%;
+  z-index: 15;
+  color: white;
+  font-size: 5vw;
+  padding: 10px;
+  /*border: 4px white solid;*/
+}
+
+
+
 span.glyphicon.glyphicon-cog{
   width: 20px;
   
