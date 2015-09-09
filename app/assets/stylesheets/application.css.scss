@@ -176,8 +176,6 @@ body.container-fluid{
   width: 100%;
   text-align: center;
   padding: 3%;
-  /*border-top: 1.5px black solid;*/
-  /*border-bottom: 1px black solid;*/
 }
 #topright_nav ul li a{
   font-size: 1vw;
@@ -509,33 +507,6 @@ a.blob{
   overflow: hidden;
   background-color:#0088ff !important; 
 
-  /*both button backgrounds change color*/
-  /*-webkit-animation-name: buttonChangeColor; 
-  -webkit-animation-duration: 2s; 
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction:alternate;
-  animation-name: buttonChangeColor;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction:alternate;  
-  
-  &:hover {
-         color: white !important;
-         text-decoration: underline !important;
-       }
-
-    
-}*/
-/*both button bacgrounds change color*/
-/*@-webkit-keyframes buttonChangeColor{
-        from {background-color: #da3905 !important;}
-        to {background-color:#0088ff !important;}
-}
-
-@keyframes buttonChangeColor{
-        from {background-color: #da3905 !important;}
-        to {background-color:#0088ff !important;}
-*/
 }
 
 /*this is for the buttons above event rsvp*/
@@ -657,43 +628,6 @@ a.blob{
 
 /*end of google maps styling*/
 
- 
-/*.dad-navbar{
-
-background-color: white;
-}
-
-
-a.navbar-brand{
-  color: black;
-  &:hover {
-         color: black;
-       }
-  font-size: 2em;
-  line-height: 18px;
-  font-weight: 700;
-  
-  
-}
-
-.navbar-nav>li>a{
-
-  color: black;
-    &:hover {
-         color: rgb(0, 136, 255);
-       }
-  font-size: 1em;
-  line-height: 18px;
-  font-weight: 700;
-  
-
-}
-
-
- .dropdown-menu{
-  text-align: center;
- }*/
-
  .col-xs-6 {
   float: left;
  }
@@ -722,6 +656,12 @@ a.navbar-brand{
 
 .container-fluid {
   font-family: 'Oswald', sans-serif;
+}
+
+.centered_container{
+ width:82%;
+ margin-left: 9%;
+ background-color: rgba(255,255,255,0.9);
 }
 
 .navbar .nav-links {

@@ -72,7 +72,7 @@
     
     <li>
        <div class = "tab" id = "purple" href="#">
-       <%= link_to "NEW USER?", new_user_path, class: "nav_pad", :id => "purple" %></div>
+       <%= link_to "NEW USER?", new_user_path, class: "nav_pad", :id => "purple" %>
        </div>
         <div class = "dropdown_nav">
         <%= link_to "START FOR FREE", new_user_path, class: "nav_pad", :id => "purple" %>
@@ -82,9 +82,11 @@
   <% end %>
     
     <li>
-       <div class = "tab" id = "green" href="#"><a class="nav_pad" href="#">ABOUT</a></div>  
+       <div class = "tab" id = "green" href="#">
+        <%= link_to "ABOUT", about_footy_path, class: "nav_pad", :id => "green" %>
+       </div>  
           <div class = "dropdown_nav">
-            <a class="nav_pad" id = "green" href="#">ABOUT</a>
+            <%= link_to "ABOUT", about_footy_path, class: "nav_pad", :id => "green" %>
           </div>
 
     </li>
