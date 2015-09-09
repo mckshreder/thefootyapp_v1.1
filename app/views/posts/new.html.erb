@@ -6,18 +6,18 @@
       <h4 class="right">Please fill all fields below.</h4>
     </div>
   <div class="home_info"> 
-    <ul class="text_list">
+    <ul class="text_list black">
 
 <%= form_for @post, :html => { :multipart => true }, :method => :post do |f| %>
     
-   <div class="form-group">
-    <%= f.label 'Upload A Photo'%>
+   <!-- <div class="form-group">
+    <p>Upload a Photo<p>
     <%= f.hidden_field(:image_cache)%>
     <%= f.file_field(:image, :html => { :multiple => true })%>
-    </div>
+    </div> -->
 
     <div class="form-group">
-    <%= f.label 'Upload A Video'%>
+    <p>Upload a Video<p>
     <%= f.hidden_field(:video_cache)%>
     <%= f.file_field(:video, :chunk_size => 6_000_000, :html => { :multiple => true })%>
     </div>
@@ -113,7 +113,7 @@
     <% end %>
 
     
-<div class="right_column">
+<!-- <div class="right_column">
     <div class="home_info"> 
         <ul class="text_list">
             <h3>What to do...</h3>
@@ -131,4 +131,4 @@
             </li>
         </ul>
     </div>
-</div>
+</div> -->

@@ -2,13 +2,13 @@ Rails.application.routes.draw do
     
     resources :events
 
-    root "posts#index"
+    root "users#welcome"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
     get "/users/new" => "users#new", as: :new_user
     get "/users/map" => "users#map", as: :user_map
     get "/users/about" => "users#about", as: :about_footy
-    get "/users/landing_page" => "users#landing_page"
+    get "/users/welcome" => "users#welcome"
     get "/users/:id" => "users#show", as: :user_profile
     get "/users/:id/edit" => "users#edit", as: :edit_users
     put "/users/:id" => "posts#update", as: :update_user
