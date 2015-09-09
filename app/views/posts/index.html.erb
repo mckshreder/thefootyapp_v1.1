@@ -94,34 +94,9 @@ $(document).ready(function() {
 	<div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
       <h2 class="left">
-      HOW IT WORKS...
-      </h2>
+      TODAY'S FEATURED SKATERS.
+        </h2>
     </div>
-	<div class="home_info" id ="pink">
-		
-		
-		<ul class="text_list">
-		
-			<li>
-				<p>#1. Have fun and skate with your bros everyday!</p>
-			</li>
-			<li>
-				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
-			</li>
-			<li>
-				<p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
-			</li>
-			<li>
-				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
-			</li>
-		</ul>
-	</div>
-	<hr class = "line-break" >
-
-<!-- the start of the popular feed on home page -->
-	<div class="feed_border">
-	<h3 class ="left">TODAY'S FEATURED SKATERS</h3>
-	</div>
 	
 	<% if @posts.count > 0 %>
     <% @posts.each do |post| %>

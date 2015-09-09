@@ -107,29 +107,23 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
       <h2 class="left">
-      LOCAL EVENTS!
+      LOCAL EVENTS.
         </h2>
       <!-- <hr class="small_line_break"> -->
     </div>
-  <div class="home_info" id = "blue"> 
-      <!-- <h5 class="center">Send your footy and your favoite company.</h5> -->
-    <ul class="text_list">
-      <li>
-        <p>Option #1. Scroll through events and RSVP to the event of your choice!</p>
-      </li>
-      <li>
-        <p>Option #2. Search events near you by your location on theFOOTYmap.</p>
-      </li>
-      <li>
-        <p>Option #3. Create a skate event for theFOOTY™app!</p>
-      </li>
-    </ul>
-  </div>
-<!-- <hr class = "line-break" > -->
-    <div class="feed_border">
-      
-    <h3>FEATURED EVENTS</h3>
-    </div>
+
+
+
+      <br>
+      <%= form_tag('users#map', method: "get") do %>
+        Search by
+        <%= select_tag "type", options_for_select(["name", "location", "age"]) %> :
+        <%= text_field_tag :query %>
+        <%= submit_tag "Search", "class" => "btn-primary" %>
+      <% end %>
+      <h6>Search by "name", "age", or "location".</h6>
+<hr class = "line-break" >
+
 
   
   <% if @events.count > 0 %>
@@ -154,7 +148,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <div class="center">
         <%= cl_video_tag(event.video.to_s.split("/upload/").last.split(".").first, :video_codec=>"h264", :width=>493, :crop=>:scale, :controls => true, :poster => true, :fallback_content => "Your browser does not support HTML5 video tags")%>
       </div>
-    </div>
+</div>
     <% end %>
 
 <% else %>

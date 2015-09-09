@@ -30,38 +30,39 @@
   <ul id = "my_new_nav">
 
     <li>
-      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts">HOME</a></div>
-        <div class = "dropdown_nav"><a class="nav_pad" id = "pink" href="/posts">HOME</a>
+      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts" data-no-turbolink>HOME</a></div>
+        <div class = "dropdown_nav">
+          <a class="nav_pad" id = "pink" href="/posts" data-no-turbolink>HOME</a>
       </div>
     </li> 
     
     <li>
-       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map">CLASSIFIEDS</a>
+       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map" data-no-turbolink>CLASSIFIEDS</a>
        </div>
         <div class = "dropdown_nav">
-          <a class="nav_pad" id = "orange" href="/users/map">CLASSIFIEDS</a>
+          <a class="nav_pad" id = "orange" href="/users/map" data-no-turbolink>CLASSIFIEDS</a>
         </div>
     </li>
     
     <li>
-      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events">EVENTS</a>
+      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events" data-no-turbolink>EVENTS</a>
       </div>
       <div class = "dropdown_nav">
-          <a class="nav_pad" id = "blue" href="/events">EVENTS</a>
+          <a class="nav_pad" id = "blue" href="/events" data-no-turbolink>EVENTS</a>
       </div> 
     </li>
     
 <% if current_user %>
     <li>
        <div class = "tab" id = "purple" href="#">
-         <%= link_to "YOUR ACCOUNT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+         <%= link_to "YOUR ACCOUNT",  user_profile_path(current_user), class: "nav_pad", :id => "purple", 'data-no-turbolink' => true %>
             
        </div>
 
 
 
         <div class = "dropdown_nav">
-          <%= link_to "YOUR PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+          <%= link_to "YOUR PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple", 'data-no-turbolink' => true%>
           <%= link_to "EDIT PROFILE",  edit_users_path(current_user), class: "nav_pad", :id => "purple" %>
           <%= link_to "LOG OUT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
         </div>
