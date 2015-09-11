@@ -46,7 +46,6 @@ var slideshow = (function(window, undefined) {
     'assets/bird-b.jpg',
     'assets/bird-c.jpg'
   ];
-
   /**
    * Set of masks with related effects.
    * @type {Array}
