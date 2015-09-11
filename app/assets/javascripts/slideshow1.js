@@ -42,7 +42,7 @@ var slideshow = (function(window, undefined) {
    * @type {Array}
    */
   var slides = [
-    'assets/bird-a.jpg',
+    'http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d8ee4b00ca896acf865/1399524755036/McKenzie_Garrett_Issacback50withboarders.jpg?format=1500w',
     'assets/bird-b.jpg',
     'assets/bird-c.jpg'
   ];
@@ -52,7 +52,7 @@ var slideshow = (function(window, undefined) {
    */
   var masks = [
     {
-      source: 'assets/masks/prism-a.svg',
+      source: 'assets/masks/footy_preslider.svg',
       effects: {
         flip: 'X',
         rotate: 45 // degrees
