@@ -8,25 +8,40 @@
 		<!-- masks -->
 		<img src="assets/masks/footylogo_sliderbase.svg">
 		<img src="assets/masks/footy_preslider.svg">
-		<!-- <img src="assets/masks/cube-c.svg"> -->
+		<img src="assets/masks/footylogo_sliderbackest.svg">
 		<!-- photos -->
-		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1280/v1441944370/Kevin_switch_ollie_yrsbvs.jpg">
-		<img src="http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d83e4b0f62cfc19db33/1433346068094/Mckenzie_Garrett_Tony.jpg?format=2500w">
-		<img src="http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d39e4b03ee65fca507b/1433346067307/last+minute+shit400px+-113.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947069/Pinnercrewmarvista_cysleq.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947957/Issachandsgesture_i458la.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947073/Curtmanny_hx6g9f.jpg">
 	</div>
 
-	<div class="wrapper">
+	<div class="wrapper feed_border">
 		<div class="prism-slider">
 			<ul class="navigation"></ul>
 		</div>
+
 		<div class="copy">
-			<article>
-				<h2>FOOTY™</h2>
+			<!-- <article> -->
+
+			
+			<div class="feed_border">
+				<h1>WELCOME TO FOOTY</h1>
 				<p>SKATE | FILM | SHARE<p>
-				<p>
-					Spend any time watching your gardens birds and you'll soon discover a host of different behaviours. It might be a Blackbird preening its feathers, a group of Starlings whirling about the sky in a pre-roosting flock or a Greenfinch showing a Blue Tit who is boss.
-				</p>
-			</article>
+				<!-- <p>Film, edit, and share a fun video or a "Sponsor me clip" with your best footy.</p>
+				<p>Upload your video to our skateboarding classfields. </p> -->
+				<p>Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+
+			<!--<%= cl_image_tag("IMG_8589_co4izy.jpg", :crop => :fill, class: "homepage_photo_tag") %>-->
+        	<!-- <h5 class="center">YOUR FOOTY™ DASHBOARD</h5> -->
+		      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
+		      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
+		      <%= link_to "LOG IN", new_session_path, class: "right_column_button"  %>
+		      <%= link_to "NEW ACCOUNT", new_user_path, class: "right_column_button"  %>
+    	</div>
+			
+			
+			<!-- </article> -->
+		    
 		</div>
 	</div>
 	<!-- End Demo -->
