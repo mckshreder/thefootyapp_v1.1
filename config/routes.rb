@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get "/users/new" => "users#new", as: :new_user
     get "/users/map" => "users#map", as: :user_map
     get "/users/about" => "users#about", as: :about_footy
+    get "/users/home" => "users#home"
     get "/users/welcome" => "users#welcome"
     get "/users/:id" => "users#show", as: :user_profile
     get "/users/:id/edit" => "users#edit", as: :edit_users
