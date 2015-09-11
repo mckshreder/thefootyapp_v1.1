@@ -42,9 +42,9 @@ var slideshow = (function(window, undefined) {
    * @type {Array}
    */
   var slides = [
-    'http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d8ee4b00ca896acf865/1399524755036/McKenzie_Garrett_Issacback50withboarders.jpg?format=1500w',
-    'assets/bird-b.jpg',
-    'assets/bird-c.jpg'
+    'http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1280/v1441944370/Kevin_switch_ollie_yrsbvs.jpg',
+    'http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d83e4b0f62cfc19db33/1433346068094/Mckenzie_Garrett_Tony.jpg?format=2500w',
+    'http://static1.squarespace.com/static/53694a6de4b0e9a5f9b52a44/5369640ae4b0849f186ecd86/536b0d39e4b03ee65fca507b/1433346067307/last+minute+shit400px+-113.jpg?format=2500w'
   ];
   /**
    * Set of masks with related effects.
@@ -52,26 +52,26 @@ var slideshow = (function(window, undefined) {
    */
   var masks = [
     {
+      source: 'assets/masks/footylogo_sliderbase.svg',
+      effects: {
+        flip: false,
+        rotate: 45 // degrees
+      }
+    },
+    {
       source: 'assets/masks/footy_preslider.svg',
       effects: {
         flip: 'X',
         rotate: 45 // degrees
       }
     },
-    {
-      source: 'assets/masks/prism-b.svg',
-      effects: {
-        flip: false,
-        rotate: 45 // degrees
-      }
-    },
-    {
-      source: 'assets/masks/prism-c.svg',
-      effects: {
-        flip: false,
-        rotate: 180 // degrees
-      }
-    }
+    // {
+    //   source: 'assets/masks/cube-c.svg',
+    //   effects: {
+    //     flip: false,
+    //     rotate: 180 // degrees
+    //   }
+    // }
   ];
 
   /**
@@ -84,7 +84,7 @@ var slideshow = (function(window, undefined) {
    * Set global duration.
    * @type {Number}
    */
-  var duration = 1000;
+  var duration = 2000;
 
   /**
    * Container for PrismSlider instances.
