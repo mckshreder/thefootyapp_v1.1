@@ -15,10 +15,11 @@
  *= require jquery-ui
  */
 body{
-  background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
+  /*background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
   background-repeat: none;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center;*/
+  background-color: #242424;
 }
 .center {
   text-align: center;
@@ -144,7 +145,7 @@ div a{
 /*this is the image that is the main title image throigh out the entire site*/
 .footy_logo_img{
   width: 100%;
-  margin-top: -19%;
+  margin-top: -17%;
   z-index: 1;
 }
 br.clear {
@@ -661,7 +662,7 @@ a.blob{
 .centered_container{
  width:82%;
  margin-left: 9%;
- margin-top: -2.2%;
+ margin-top: -1%;
  background-color: rgba(255,255,255,0.9);
 }
 

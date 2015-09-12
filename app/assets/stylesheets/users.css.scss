@@ -56,7 +56,16 @@ div.home_top_object{
   margin-bottom: 10px;
 }
 
+.home_logo_photo{
+    width: 82.2%;
+    max-width: 1200px;
+    margin-left: 8.9%;
+    margin-top: -25px;
+    padding-bottom: 10px;
+}
+
 @media screen and (max-width: 1024px) {
+
 
   div.home_top_object{
   width: 31.6%;
@@ -73,6 +82,14 @@ div.home_top_object{
   width:84%;
   border: 1px black solid;
   }
+
+  .home_logo_photo{
+    width: 100%;
+    max-width: 1200px;
+    margin-left: 0%;
+    margin-top: -34px;
+    padding-bottom: 10px;
+}
 
 
 }
