@@ -144,7 +144,7 @@ div a{
 /*this is the image that is the main title image throigh out the entire site*/
 .footy_logo_img{
   width: 100%;
-  margin-top: -8%;
+  margin-top: -19%;
   z-index: 1;
 }
 br.clear {
@@ -747,6 +747,22 @@ ul.dropdown-menu{
   padding-left: 20px;
   }
 }*/
+
+
+
+@media screen and (max-width: 1024px) {
+  .centered_container{
+   width:100%;
+   margin-left: 0%;
+   /*margin-top: -2.2%;*/
+   background-color: rgba(255,255,255,0.9);
+  }
+}
+
+
+
+
+
 
 @media screen and (max-width: 600px) {
 
