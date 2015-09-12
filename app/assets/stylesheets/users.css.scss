@@ -5,6 +5,34 @@
 
 /* user#new mainpage background video*/
 
+.home_top_container{
+  padding: 15px;
+  padding-bottom: 20px;
+  height: 32vw; 
+  /*background-color: black; */
+}
+
+div.home_top_object{
+  width: 31.9%;
+  height: 100%; 
+  background-color: white !important;
+  display: inline-block;
+  margin: 5px;
+  border: 3px solid black;
+}
+
+@media screen and (max-width: 1024px) {
+
+  div.home_top_object{
+  width: 31.6%;
+  height: 100%; 
+  background-color: white !important;
+  display: inline-block;
+  margin: 5px;
+  }
+}
+
+
 .new_user_video_wrapper {
     position: absolute;
     width: 500%;
