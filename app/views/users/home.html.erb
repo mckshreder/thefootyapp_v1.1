@@ -47,35 +47,13 @@
 		</div>
 	</div>
 
-<!-- 
-	<div class="home_top_object">
-	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,w_500/v1442023243/kevin_boardslide_fvbsnk.jpg">
-
-		<div class="home_top_info">
-		<h3>Classifieds</h3>
-
-		</div>
-	</div>
-	<div class="home_top_object">
-	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,g_north,h_500,w_500/v1442023060/Isaac_Wallride_dpbpw2.jpg">
-
-		<div class="home_top_info">
-
-		</div>
-	</div>
-	<div class="home_top_object">
-		<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,q_100,w_500/v1441946922/Curtloks_LA-1_ua1fsx.jpg">
-		
-		<div class="home_top_info">
-
-		</div>
-	</div> -->
 </div>
 
 <div class="content">
 	<!-- Start Demo -->
 
 	<div class="cache">
+
 		<!-- masks -->
 		<img src="assets/masks/footylogo_sliderbase.svg">
 		<img src="assets/masks/footy_preslider.svg">
@@ -84,17 +62,17 @@
 		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947069/Pinnercrewmarvista_cysleq.jpg">
 		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947957/Issachandsgesture_i458la.jpg">
 		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947073/Curtmanny_hx6g9f.jpg">
+
 	</div>
 
 	<div class="wrapper feed_border">
 		<div class="prism-slider">
-			<ul class="navigation"></ul>
+			<ul class="navigation">
+			</ul>
 		</div>
 
 		<div class="copy">
-			<!-- <article> -->
-
-			
+			<!-- <article> -->	
 			<div class="feed_border">
 				<h1>WELCOME TO FOOTY</h1>
 				<p>SKATE | FILM | SHARE<p>
@@ -102,13 +80,13 @@
 				<p>Upload your video to our skateboarding classfields. </p> -->
 				<p>Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
 
-			<!--<%= cl_image_tag("IMG_8589_co4izy.jpg", :crop => :fill, class: "homepage_photo_tag") %>-->
-        	<!-- <h5 class="center">YOUR FOOTY™ DASHBOARD</h5> -->
-		      <%= link_to "POST FOOTY", new_post_path, class: "right_column_button"  %>
-		      <%= link_to "CREATE EVENT", new_event_path, class: "right_column_button"  %>
-		      <%= link_to "LOG IN", new_session_path, class: "right_column_button"  %>
-		      <%= link_to "NEW ACCOUNT", new_user_path, class: "right_column_button"  %>
-    	</div>
+				<!--<%= cl_image_tag("IMG_8589_co4izy.jpg", :crop => :fill, class: "homepage_photo_tag") %>-->
+	        	<!-- <h5 class="center">YOUR FOOTY™ DASHBOARD</h5> -->
+		        <%= link_to "POST FOOTY", new_post_path, class: "home_column_button"  %>
+		        <%= link_to "CREATE EVENT", new_event_path, class: "home_column_button"  %>
+		        <%= link_to "LOG IN", new_session_path, class: "home_column_button"  %>
+		        <%= link_to "NEW ACCOUNT", new_user_path, class: "home_column_button"  %>
+    		</div>
 			
 			
 			<!-- </article> -->
@@ -122,7 +100,21 @@
 	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,w_500/v1442023243/kevin_boardslide_fvbsnk.jpg">
 
 		<div class="home_top_info">
-		<h3>Classifieds</h3>
+		<ul class="text_list">
+		
+			<li>
+				<p>#1. Have fun and skate with your friends everyday!</p>
+			</li>
+			<li>
+				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+			</li>
+			<li>
+				<p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+			</li>
+			<li>
+				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+			</li>
+		</ul>
 
 		</div>
 	</div>
@@ -131,12 +123,35 @@
 
 		<div class="home_top_info">
 
+		<ul class="text_list">
+	      <li>
+	        <p>#1. Scroll through classifieds and contact to the skater of your choice!</p>
+	      </li>
+	      <li>
+	        <p>#2. Search skaters near you by your location on theFOOTYmap.</p>
+	      </li>
+	      <li>
+	        <p>#3. Create a skate post for theFOOTY™app!</p>
+	      </li>
+	    </ul>
+
 		</div>
 	</div>
 	<div class="home_top_object">
 		<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,q_100,w_500/v1441946922/Curtloks_LA-1_ua1fsx.jpg">
 		
 		<div class="home_top_info">
+		<ul class="text_list">
+      <li>
+        <p>#1. Scroll through events and RSVP to the event of your choice!</p>
+      </li>
+      <li>
+        <p>#2. Search events near you by your location on theFOOTYmap.</p>
+      </li>
+      <li>
+        <p>#3. Create a skate event for theFOOTY™app!</p>
+      </li>
+    </ul>
 
 		</div>
 	</div>

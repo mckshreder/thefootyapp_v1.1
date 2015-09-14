@@ -543,6 +543,22 @@ a.blob{
 
   }
 
+   .home_column_button {
+  font-size: 1.5em !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 10px white solid;
+  margin: 1px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color:white !important;
+  width:49% !important;
+  overflow: hidden;
+  float: left;
+  background-color: rgb(36, 36, 36) !important;
+
+  }
+
 /*The right column containing the posts*/
  .right_column {
   width: 37%;
