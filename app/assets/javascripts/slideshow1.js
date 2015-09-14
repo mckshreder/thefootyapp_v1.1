@@ -52,21 +52,21 @@ var slideshow = (function(window, undefined) {
    */
   var masks = [
     {
-      source: 'assets/masks/footylogo_sliderbackest.svg',
+      source: 'http://res.cloudinary.com/mckshreder/image/upload/v1442259122/footylogo_sliderbackest_y7rxta.svg',
       effects: {
         flip: false,
         rotate: 45 // degrees
       }
     },
     {
-      source: 'assets/masks/footylogo_sliderbase.svg',
+      source: 'http://res.cloudinary.com/mckshreder/image/upload/v1442259122/footylogo_sliderbase_tv3ibx.svg',
       effects: {
         flip: false,
         rotate: 45 // degrees
       }
     },
     {
-      source: 'assets/masks/footy_preslider.svg',
+      source: 'http://res.cloudinary.com/mckshreder/image/upload/v1442259122/footy_preslider_d6hkva.svg',
       effects: {
         flip: false,
         rotate: 180 // degrees
