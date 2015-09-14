@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= cloudinary_js_config %>
-
+  
   <link href='https://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -15,6 +15,7 @@
   type="text/javascript"></script>
   <script src="http://widget.cloudinary.com/global/all.js" type="text/javascript">  
   </script>
+
 
   
 
@@ -30,38 +31,39 @@
   <ul id = "my_new_nav">
 
     <li>
-      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts">HOME</a></div>
-        <div class = "dropdown_nav"><a class="nav_pad" id = "pink" href="/posts">HOME</a>
+      <div class = "tab" id = "pink"><a class="nav_pad" href="/posts" data-no-turbolink>HOME</a></div>
+        <div class = "dropdown_nav">
+          <a class="nav_pad" id = "pink" href="/posts" data-no-turbolink>HOME</a>
       </div>
     </li> 
     
     <li>
-       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map">CLASSIFIEDS</a>
+       <div class = "tab" id = "orange"><a class="nav_pad" href="/users/map" data-no-turbolink>CLASSIFIEDS</a>
        </div>
         <div class = "dropdown_nav">
-          <a class="nav_pad" id = "orange" href="/users/map">CLASSIFIEDS</a>
+          <a class="nav_pad" id = "orange" href="/users/map" data-no-turbolink>CLASSIFIEDS</a>
         </div>
     </li>
     
     <li>
-      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events">EVENTS</a>
+      <div class = "tab" id = "blue" href="#"><a class="nav_pad" href="/events" data-no-turbolink>EVENTS</a>
       </div>
       <div class = "dropdown_nav">
-          <a class="nav_pad" id = "blue" href="/events">EVENTS</a>
+          <a class="nav_pad" id = "blue" href="/events" data-no-turbolink>EVENTS</a>
       </div> 
     </li>
     
 <% if current_user %>
     <li>
        <div class = "tab" id = "purple" href="#">
-         <%= link_to "YOUR ACCOUNT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+         <%= link_to "YOUR ACCOUNT",  user_profile_path(current_user), class: "nav_pad", :id => "purple", 'data-no-turbolink' => true %>
             
        </div>
 
 
 
         <div class = "dropdown_nav">
-          <%= link_to "YOUR PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
+          <%= link_to "YOUR PROFILE",  user_profile_path(current_user), class: "nav_pad", :id => "purple", 'data-no-turbolink' => true%>
           <%= link_to "EDIT PROFILE",  edit_users_path(current_user), class: "nav_pad", :id => "purple" %>
           <%= link_to "LOG OUT",  user_profile_path(current_user), class: "nav_pad", :id => "purple" %>
         </div>
@@ -72,7 +74,7 @@
     
     <li>
        <div class = "tab" id = "purple" href="#">
-       <%= link_to "NEW USER?", new_user_path, class: "nav_pad", :id => "purple" %></div>
+       <%= link_to "NEW USER?", new_user_path, class: "nav_pad", :id => "purple" %>
        </div>
         <div class = "dropdown_nav">
         <%= link_to "START FOR FREE", new_user_path, class: "nav_pad", :id => "purple" %>
@@ -82,9 +84,11 @@
   <% end %>
     
     <li>
-       <div class = "tab" id = "green" href="#"><a class="nav_pad" href="#">ABOUT</a></div>  
+       <div class = "tab" id = "green" href="#">
+        <%= link_to "ABOUT", about_footy_path, class: "nav_pad", :id => "green" %>
+       </div>  
           <div class = "dropdown_nav">
-            <a class="nav_pad" id = "green" href="#">ABOUT</a>
+            <%= link_to "ABOUT", about_footy_path, class: "nav_pad", :id => "green" %>
           </div>
 
     </li>

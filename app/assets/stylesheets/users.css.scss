@@ -5,6 +5,96 @@
 
 /* user#new mainpage background video*/
 
+.home_top_container{
+  padding: 15px;
+  padding-bottom: 20px;
+  height: 40vw; 
+  /*background-color: black; */
+}
+
+div.home_top_object{
+  width: 31.9%;
+  height: 100%; 
+  background-color: white !important;
+  display: inline-block;
+  float: left;
+  margin: 5px;
+  margin-top: 0px;
+  /*border: 1.5px double black;*/
+  overflow: hidden;
+}
+
+.home_top_photo{
+  border-radius: 100%;
+  margin-left: 22.5px;
+  margin-top: 20px;
+  width:85%;
+  /*border: 1.5px solid black;*/
+}
+
+.home_top_info h3 {
+  font-size: 7.2em;
+  text-align: center;
+  padding-top: 3.1%;
+}
+
+.home_top_info{
+  margin-top: 20px;
+  width: 100%;
+  height: 34%;
+  background-color: #292929 !important;
+  border: 1.5px solid black;
+  color: white;
+}
+
+.home_top_slider{
+  width: 97.5%;
+  height:13%;
+  /*background-color: white;*/
+  margin: 5px;
+  margin-top: -1%;
+  margin-bottom: 10px;
+}
+
+.home_logo_photo{
+    width: 82.2%;
+    max-width: 1200px;
+    margin-left: 8.9%;
+    margin-top: -25px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+
+
+  div.home_top_object{
+  width: 31.6%;
+  height: 121%; 
+  background-color: white !important;
+  display: inline-block;
+  margin: 5px;
+  }
+
+  .home_top_photo{
+  border-radius: 100%;
+  margin-left: 20px;
+  margin-top: 20px;
+  width:84%;
+  border: 1px black solid;
+  }
+
+  .home_logo_photo{
+    width: 100%;
+    max-width: 1200px;
+    margin-left: 0%;
+    margin-top: -34px;
+    padding-bottom: 10px;
+}
+
+
+}
+
+
 .new_user_video_wrapper {
     position: absolute;
     width: 500%;
@@ -522,6 +612,13 @@ padding: 4px;
   max-height: 22%;
   float:left !important;
   margin-left: 1%;
+}
+
+.homepage_photo_tag{
+  width:100%;
+  height: 100%;
+  padding: 0;
+
 }
 
  div.form_group{

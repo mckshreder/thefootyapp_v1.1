@@ -102,24 +102,10 @@ $(document).ready(function() {
   <div class="feed_border">
       <h4 class="left">the FOOTY™app</h4>
       <h2 class="left">
-      LOCAL FOOTY CLASSIFIEDS!
+      FOOTY CLASSIFIEDS.
         </h2>
       <!-- <hr class="small_line_break"> -->
     </div>
-  <div class="home_info" id = "orange"> 
-      <!-- <h5 class="center">Send your footy and your favoite company.</h5> -->
-    <ul class="text_list">
-      <li>
-        <p>Option #1. Scroll through classifieds and contact to the skater of your choice!</p>
-      </li>
-      <li>
-        <p>Option #2. Search skaters near you by your location on theFOOTYmap.</p>
-      </li>
-      <li>
-        <p>Option #3. Create a skate post for theFOOTY™app!</p>
-      </li>
-    </ul>
-  </div>
     
   <br>
   <%= form_tag('users#map', method: "get") do %>
@@ -283,7 +269,7 @@ $(document).ready(function() {
         GOT SKATE FOOTY?
       </h3>
       <h5 class="center">UPLOAD YOUR FOOTY FOR FREE</h5>
-      <a class="submit-button-create, large_button" href="/events/new">
+      <a class="submit-button-create, large_button" href="/posts/new">
        CREATE POST
       </a>
 

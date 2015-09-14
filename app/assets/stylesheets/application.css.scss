@@ -15,10 +15,11 @@
  *= require jquery-ui
  */
 body{
-  background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
+  /*background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
   background-repeat: none;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center;*/
+  background-color: #242424;
 }
 .center {
   text-align: center;
@@ -144,7 +145,7 @@ div a{
 /*this is the image that is the main title image throigh out the entire site*/
 .footy_logo_img{
   width: 100%;
-  margin-top: -8%;
+  margin-top: -17%;
   z-index: 1;
 }
 br.clear {
@@ -176,8 +177,6 @@ body.container-fluid{
   width: 100%;
   text-align: center;
   padding: 3%;
-  /*border-top: 1.5px black solid;*/
-  /*border-bottom: 1px black solid;*/
 }
 #topright_nav ul li a{
   font-size: 1vw;
@@ -509,33 +508,6 @@ a.blob{
   overflow: hidden;
   background-color:#0088ff !important; 
 
-  /*both button backgrounds change color*/
-  /*-webkit-animation-name: buttonChangeColor; 
-  -webkit-animation-duration: 2s; 
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-direction:alternate;
-  animation-name: buttonChangeColor;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction:alternate;  
-  
-  &:hover {
-         color: white !important;
-         text-decoration: underline !important;
-       }
-
-    
-}*/
-/*both button bacgrounds change color*/
-/*@-webkit-keyframes buttonChangeColor{
-        from {background-color: #da3905 !important;}
-        to {background-color:#0088ff !important;}
-}
-
-@keyframes buttonChangeColor{
-        from {background-color: #da3905 !important;}
-        to {background-color:#0088ff !important;}
-*/
 }
 
 /*this is for the buttons above event rsvp*/
@@ -568,6 +540,22 @@ a.blob{
   overflow: hidden;
   float: left;
   background-color: #0088ff !important;
+
+  }
+
+   .home_column_button {
+  font-size: 1.5em !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 10px white solid;
+  margin: 1px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color:white !important;
+  width:49% !important;
+  overflow: hidden;
+  float: left;
+  background-color: rgb(36, 36, 36) !important;
 
   }
 
@@ -657,43 +645,6 @@ a.blob{
 
 /*end of google maps styling*/
 
- 
-/*.dad-navbar{
-
-background-color: white;
-}
-
-
-a.navbar-brand{
-  color: black;
-  &:hover {
-         color: black;
-       }
-  font-size: 2em;
-  line-height: 18px;
-  font-weight: 700;
-  
-  
-}
-
-.navbar-nav>li>a{
-
-  color: black;
-    &:hover {
-         color: rgb(0, 136, 255);
-       }
-  font-size: 1em;
-  line-height: 18px;
-  font-weight: 700;
-  
-
-}
-
-
- .dropdown-menu{
-  text-align: center;
- }*/
-
  .col-xs-6 {
   float: left;
  }
@@ -724,6 +675,13 @@ a.navbar-brand{
   font-family: 'Oswald', sans-serif;
 }
 
+.centered_container{
+ width:82%;
+ margin-left: 9%;
+ margin-top: -1%;
+ background-color: rgba(255,255,255,0.9);
+}
+
 .navbar .nav-links {
 font-family: 'Michroma', sans-serif, !important;
 
@@ -748,10 +706,45 @@ font-family: 'Michroma', sans-serif, !important;
     margin: 5px;  
 }
 
-.landing-page {
-
-  background: black;
+/*the css for the langing home page*/
+.landing_photo {
+position: absolute;
+top: 0;
+left: 0;
+background: black;
+z-index: 0;
 }
+
+.landing_nav{
+  position: absolute;
+  margin-left: 36.5%;
+  margin-top: 22.5%;
+}
+
+.landing_button {
+  z-index: 15;
+  border: 4px white solid;
+  color: white;
+  font-size: 4vw;
+  display: inline;
+  margin: 4%;
+  padding: 13px;
+
+}
+
+.landing_slogan{
+  position: absolute;
+  margin-left: 26.3%;
+  margin-top: -5%;
+  z-index: 15;
+  color: white;
+  font-size: 5vw;
+  padding: 10px;
+  /*border: 4px white solid;*/
+}
+
+
+
 span.glyphicon.glyphicon-cog{
   width: 20px;
   
@@ -771,6 +764,22 @@ ul.dropdown-menu{
   padding-left: 20px;
   }
 }*/
+
+
+
+@media screen and (max-width: 1024px) {
+  .centered_container{
+   width:100%;
+   margin-left: 0%;
+   /*margin-top: -2.2%;*/
+   background-color: rgba(255,255,255,0.9);
+  }
+}
+
+
+
+
+
 
 @media screen and (max-width: 600px) {
 

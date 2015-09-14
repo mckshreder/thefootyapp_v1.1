@@ -37,8 +37,8 @@
 
 
 <!-- this is the "sign in or sign up forum" -->
-<% if current_user %>
     <div class="right_column">
+<% if current_user %>
         <ul id="topright_nav">
         <li>
           <%= cl_image_tag(current_user.image,:width => 133, :height => 133, :crop => :fill, class: "user_profile_photo_tag") %>
@@ -135,7 +135,8 @@
 <!-- ELSE!!!!! -->
 <% else %>
 
-<div class="right_column">
+<!-- <div class="right_column"> -->
+<!-- <div class="right_column"> -->
     <div id="topright_nav">
         <!-- <h4 class="center">New to the Footy app?</h4>
         <h3 class="center">Sign up for Free!</h3>
@@ -148,10 +149,9 @@
         <%= link_to "Log in", new_user_path, class: "submit-button, large_button" %>
     </div>
     <h4 class="center">the FOOTY™app</h4>
-</div>
-<div class="right_column">
+<!-- </div> -->
 <div class="home_info">
-        <h4>the FOOTY™ info</h4>
+        <h4 class="black">the FOOTY™ info</h4>
         <hr class = "line-break" >
 
       <ul class="text_list">
