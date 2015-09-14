@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     
     resources :events
 
-    root "users#welcome"
+    root "users#home"
     get "/users" => "users#index", as: :users
     post "/users" => "users#create", as: :create_user
     get "/users/new" => "users#new", as: :new_user

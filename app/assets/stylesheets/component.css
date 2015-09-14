@@ -1,6 +1,6 @@
 /* Article Layout */
 .wrapper {
-	width: 100%;
+	width: 97.5%;
 	background: white;
 }
 
@@ -48,7 +48,7 @@
 	color: #b1b6ba;
 	font-size: 1.5em;
 	font-size: 2vw;
-	margin-bottom: 1.5em;
+	margin-bottom: 0% !important;
 }
 
 .wrapper .prism-slider {

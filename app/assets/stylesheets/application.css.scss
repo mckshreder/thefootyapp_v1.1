@@ -15,10 +15,11 @@
  *= require jquery-ui
  */
 body{
-  background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
+  /*background-image: url(http://khongthe.com/wallpapers/abstract/mix-3d-paint-252853.jpg);
   background-repeat: none;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center;*/
+  background-color: #242424;
 }
 .center {
   text-align: center;
@@ -144,7 +145,7 @@ div a{
 /*this is the image that is the main title image throigh out the entire site*/
 .footy_logo_img{
   width: 100%;
-  margin-top: -8%;
+  margin-top: -17%;
   z-index: 1;
 }
 br.clear {
@@ -542,6 +543,22 @@ a.blob{
 
   }
 
+   .home_column_button {
+  font-size: 1.5em !important;
+  text-align: center;
+  font-weight: bolder;
+  border: 10px white solid;
+  margin: 1px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color:white !important;
+  width:49% !important;
+  overflow: hidden;
+  float: left;
+  background-color: rgb(36, 36, 36) !important;
+
+  }
+
 /*The right column containing the posts*/
  .right_column {
   width: 37%;
@@ -661,6 +678,7 @@ a.blob{
 .centered_container{
  width:82%;
  margin-left: 9%;
+ margin-top: -1%;
  background-color: rgba(255,255,255,0.9);
 }
 
@@ -746,6 +764,22 @@ ul.dropdown-menu{
   padding-left: 20px;
   }
 }*/
+
+
+
+@media screen and (max-width: 1024px) {
+  .centered_container{
+   width:100%;
+   margin-left: 0%;
+   /*margin-top: -2.2%;*/
+   background-color: rgba(255,255,255,0.9);
+  }
+}
+
+
+
+
+
 
 @media screen and (max-width: 600px) {
 

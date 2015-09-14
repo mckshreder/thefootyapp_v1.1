@@ -1,47 +1,162 @@
 
-<div class="container">
-<!-- 	<header class="codrops-header">
-		<h1>Prism Effect Slider</h1>
-		<div class="codrops-links">
-			<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Tutorials/SVGLoaderGSAP/" title="Previous Demo"><span>Previous Demo</span></a>
-			<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=23787" title="Back to the article"><span>Back to the Codrops article</span></a>
+<div>
+<image class="home_logo_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,g_center,h_129,q_100,w_1065/v1441765874/Footy_main3_a8lsmq.png">
+</div>
+
+<div class="centered_container">
+
+
+<div class="home_top_container">
+	
+
+
+			
+			<!-- <div> -->
+				<!-- <h4>WELCOME TO FOOTY</h4>
+				<p>SKATE | FILM | SHARE</p> -->
+
+			<!--<%= cl_image_tag("kfhtcyxxql9aquyeqn5j.png",class: "home_top_slider") %>-->
+        	<!-- <h3 class="center"> THE FOOTY™ DASHBOARD</h3> -->
+
+    	<!-- </div> -->
+
+	<div class="home_top_object">
+	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/video/upload/c_fit,q_100,w_500/v1442030115/Garrettrefugioskate_fjme7s.gif">
+
+		<div class="home_top_info">
+		<h3>SKATE</h3>
+
 		</div>
-		<nav class="codrops-demos">
-			<a class="current-demo" href="index.html">Diamond</a>
-			<a href="index2.html">Penrose Triangle</a>
-			<a href="index3.html">Impossible Cube</a>
-		</nav>
-	</header> -->
+	</div>
+	
+	<div class="home_top_object">
+	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/video/upload/c_fill,g_center,h_500,w_500/v1441789298/ftrote5hahta3qyi2lq8.gif">
+
+		<div class="home_top_info">
+		<h3>FILM</h3>
+
+		</div>
+	</div>
+
+	<div class="home_top_object">
+	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/video/upload/c_scale,h_500,w_500/v1442027508/lenny_mirror_slider_oirtqc.gif">
+
+		<div class="home_top_info">
+		<h3>SHARE</h3>
+
+		</div>
+	</div>
+
+</div>
+
 <div class="content">
 	<!-- Start Demo -->
 
 	<div class="cache">
+
 		<!-- masks -->
-		<img src="assets/masks/prism-a.svg">
-		<img src="assets/masks/prism-b.svg">
-		<img src="assets/masks/prism-c.svg">
+		<img src="assets/masks/footylogo_sliderbase.svg">
+		<img src="assets/masks/footy_preslider.svg">
+		<img src="assets/masks/footylogo_sliderbackest.svg">
 		<!-- photos -->
-		<img src="assets/bird-a.jpg">
-		<img src="assets/bird-b.jpg">
-		<img src="assets/bird-c.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947069/Pinnercrewmarvista_cysleq.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947957/Issachandsgesture_i458la.jpg">
+		<img src="http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947073/Curtmanny_hx6g9f.jpg">
+
 	</div>
 
-	<div class="wrapper">
+	<div class="wrapper feed_border">
 		<div class="prism-slider">
-			<ul class="navigation"></ul>
+			<ul class="navigation">
+			</ul>
 		</div>
+
 		<div class="copy">
-			<article>
-				<h2>Strange Birds</h2>
-				<p>Every bird tells a tale. This is the story of four bird characters and their adventures.</p>
-				<p>
-					Spend any time watching your gardens birds and you'll soon discover a host of different behaviours. It might be a Blackbird preening its feathers, a group of Starlings whirling about the sky in a pre-roosting flock or a Greenfinch showing a Blue Tit who is boss.
-				</p>
-			</article>
+			<!-- <article> -->	
+			<div class="feed_border">
+				<h1>WELCOME TO FOOTY</h1>
+				<p>SKATE | FILM | SHARE<p>
+				<!-- <p>Film, edit, and share a fun video or a "Sponsor me clip" with your best footy.</p>
+				<p>Upload your video to our skateboarding classfields. </p> -->
+				<p>Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+
+				<!--<%= cl_image_tag("IMG_8589_co4izy.jpg", :crop => :fill, class: "homepage_photo_tag") %>-->
+	        	<!-- <h5 class="center">YOUR FOOTY™ DASHBOARD</h5> -->
+		        <%= link_to "POST FOOTY", new_post_path, class: "home_column_button"  %>
+		        <%= link_to "CREATE EVENT", new_event_path, class: "home_column_button"  %>
+		        <%= link_to "LOG IN", new_session_path, class: "home_column_button"  %>
+		        <%= link_to "NEW ACCOUNT", new_user_path, class: "home_column_button"  %>
+    		</div>
+			
+			
+			<!-- </article> -->
+		    
 		</div>
 	</div>
+
+
+<div class="home_top_container">
+		<div class="home_top_object">
+	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,w_500/v1442023243/kevin_boardslide_fvbsnk.jpg">
+
+		<div class="home_top_info">
+		<ul class="text_list">
+		
+			<li>
+				<p>#1. Have fun and skate with your friends everyday!</p>
+			</li>
+			<li>
+				<p>#2. Film and edit a fun video or a "Sponsor me clip" with your best footy.</p>
+			</li>
+			<li>
+				<p>#3. Upload your video to YouTube, copy the video url, and place ad with your video on our skateboarding classfields. </p>
+			</li>
+			<li>
+				<p>#4. Instantly share your footy with companies, friends, and family all around the world... for FREE!</p>
+			</li>
+		</ul>
+
+		</div>
+	</div>
+	<div class="home_top_object">
+	<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,g_north,h_500,w_500/v1442023060/Isaac_Wallride_dpbpw2.jpg">
+
+		<div class="home_top_info">
+
+		<ul class="text_list">
+	      <li>
+	        <p>#1. Scroll through classifieds and contact to the skater of your choice!</p>
+	      </li>
+	      <li>
+	        <p>#2. Search skaters near you by your location on theFOOTYmap.</p>
+	      </li>
+	      <li>
+	        <p>#3. Create a skate post for theFOOTY™app!</p>
+	      </li>
+	    </ul>
+
+		</div>
+	</div>
+	<div class="home_top_object">
+		<img class="home_top_photo" src="http://res.cloudinary.com/mckshreder/image/upload/c_thumb,h_500,q_100,w_500/v1441946922/Curtloks_LA-1_ua1fsx.jpg">
+		
+		<div class="home_top_info">
+		<ul class="text_list">
+      <li>
+        <p>#1. Scroll through events and RSVP to the event of your choice!</p>
+      </li>
+      <li>
+        <p>#2. Search events near you by your location on theFOOTYmap.</p>
+      </li>
+      <li>
+        <p>#3. Create a skate event for theFOOTY™app!</p>
+      </li>
+    </ul>
+
+		</div>
+	</div>
+</div>
 	<!-- End Demo -->
 </div>
 
-		<script src="/utils/rAF.js"></script>
-		<script src="/utils/easing.js"></script>
+		

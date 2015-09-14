@@ -42,37 +42,36 @@ var slideshow = (function(window, undefined) {
    * @type {Array}
    */
   var slides = [
-    'assets/bird-a.jpg',
-    'assets/bird-b.jpg',
-    'assets/bird-c.jpg'
+    'http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947069/Pinnercrewmarvista_cysleq.jpg',
+    'http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947957/Issachandsgesture_i458la.jpg',
+    'http://res.cloudinary.com/mckshreder/image/upload/c_fill,h_960,w_1200/v1441947073/Curtmanny_hx6g9f.jpg'
   ];
-
   /**
    * Set of masks with related effects.
    * @type {Array}
    */
   var masks = [
     {
-      source: 'assets/masks/prism-a.svg',
-      effects: {
-        flip: 'X',
-        rotate: 45 // degrees
-      }
-    },
-    {
-      source: 'assets/masks/prism-b.svg',
+      source: 'assets/masks/footylogo_sliderbackest.svg',
       effects: {
         flip: false,
         rotate: 45 // degrees
       }
     },
     {
-      source: 'assets/masks/prism-c.svg',
+      source: 'assets/masks/footylogo_sliderbase.svg',
+      effects: {
+        flip: false,
+        rotate: 45 // degrees
+      }
+    },
+    {
+      source: 'assets/masks/footy_preslider.svg',
       effects: {
         flip: false,
         rotate: 180 // degrees
       }
-    }
+    },
   ];
 
   /**
@@ -85,7 +84,7 @@ var slideshow = (function(window, undefined) {
    * Set global duration.
    * @type {Number}
    */
-  var duration = 1000;
+  var duration = 2000;
 
   /**
    * Container for PrismSlider instances.
@@ -191,9 +190,13 @@ var slideshow = (function(window, undefined) {
    * Add Events.
    * Bind click on bullets.
    */
+
+
   function addEvents_() {
+
+
     // Detect click on navigation elment (ul).
-    navigation.element.addEventListener('click', function(e) {
+    container.element.addEventListener('click', function(e) {
 
       // Get clicked element.
       var bullet = e.target;
